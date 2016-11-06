@@ -13,6 +13,20 @@ except ImportError:
     zlib = None
     crc32 = binascii.crc32
 
+def crc32_combine(crc1, crc2, len2):
+    import ctypes
+    from ctypes import util
+    _zlib = ctypes.cdll.LoadLibrary(util.find_library('z'))
+    #lib = util.find_library('zlib1')
+    #_zlib = ctypes.CDLL(lib)
+    assert _zlib._name, "Can't find zlib"
+
+    _zlib.crc32_combine.argtypes = [
+        ctypes.c_ulong, ctypes.c_ulong, ctypes.c_ulong]
+    _zlib.crc32_combine.restype = ctypes.c_ulong
+
+    return _zlib.crc32_combine(crc1, crc2, len2)
+
 class GmlZFile(ZipFile):
     def writecompressed(self, zinfo_or_arcname, compressed_input, crc, uncompressed_size, compressed_size, compress_type=ZIP_DEFLATED):
         """Write pre compressed data into the archive.
