@@ -19,11 +19,12 @@ def print_hex(x, n=32, header=True):
     for i in range(0,len(x), n):
         print '{:03d}:  {}'.format(i, ' '.join('{:02X}'.format(ord(c)) for c in x[i:i+n]))
 
+from cStringIO import StringIO
 from gzip import GzipFile
+import struct
 from zipfile import ZipFile, ZIP_DEFLATED
 import zlib
-from cStringIO import StringIO
-import struct
+
 
 header = '''<?xml version="1.0" encoding="UTF-8"?>
 <xmldata>

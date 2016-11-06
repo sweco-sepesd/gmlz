@@ -1,14 +1,7 @@
-import zlib
-from zipfile import ZIP_DEFLATED
-
 '''
 crc32_combine(crc1, crc2, len2)
 '''
-
-from data_generator import BBox, random_points
-
 #from gfy_pycrc32_combine import crc32_combine
-from crc32_combine import crc32_combine
 '''
 def crc32_combine(crc1, crc2, len2):
     import ctypes
@@ -24,6 +17,14 @@ def crc32_combine(crc1, crc2, len2):
 
     return _zlib.crc32_combine(crc1, crc2, len2)
 '''
+
+from zipfile import ZIP_DEFLATED
+import zlib
+
+from crc32_combine import crc32_combine
+from data_generator import BBox, random_points
+
+
 def print_hex(x, n=32, header=True):
     if header:
         print 'Length: {}'.format(len(x))
