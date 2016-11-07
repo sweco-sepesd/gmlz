@@ -30,14 +30,30 @@ def crc32_combine(crc1, crc2, len2):
 class GmlZFile(ZipFile):
     def writecompressed(self, zinfo_or_arcname, compressed_input, crc, uncompressed_size, compressed_size, compress_type=ZIP_DEFLATED):
         """Write pre compressed data into the archive.
-        
-        zinfo_or_arcname: Either a ZipInfo instance or the name of the file in the archive.
-        compressed_input: The pre compressed content. This can be either a string, a file object or an iterator.
-        If input is an iterator, each item will be checked if it's a string or file object.
-        crc: The CRC32 checksum of the (combined) input.
+
+        This method could be useful in a case when data needs to be stored in
+        a different order from what it is being produced. For example when
+        writing a GML-file, the bbox element needs to be written at the top of
+        the document. Naturally this can not be produced until all members of
+        the final document has been visited. The 'compressed_input' can be an
+        itarator of file like objects or strings. In the GML case the head of
+        the file would probably come from a StringIO object, bulk from temp file
+        and tail from StringIO object. Care has to be taken to properly compose
+        the different pre-compressed parts so that the concatenated value
+        becomes a valid deflate-stream. Also note that the combined crc32 has to
+        be calculated in correct order. This can be achieved using method
+        crc32_combine from zlib.
+
+        zinfo_or_arcname:  Either a ZipInfo instance or the name of the file in
+                           the archive.
+        compressed_input:  The pre compressed content. This can be either a
+                           string, a file object or an iterator. If input is an
+                           iterator, each item will be checked if it's a string
+                           or file object.
+        crc:               The CRC32 checksum of the (combined) input.
         uncompressed_size:
         compressed_size:
-        compress_type: 
+        compress_type:
          """
         if not compress_type == self.compression: raise RuntimeError(
             "Pre compressed data has to be of same kind as this archive uses, got {}, expected {}".format(compress_type, self.compression))
@@ -66,21 +82,15 @@ class GmlZFile(ZipFile):
         self._writecheck(zinfo)
         self._didModify = True
         zinfo.CRC = crc & 0xffffffff            # CRC-32 checksum
-        
+
         zinfo.compress_size = compressed_size
-        
+
         zip64 = zinfo.file_size > ZIP64_LIMIT or \
                 zinfo.compress_size > ZIP64_LIMIT
         if zip64 and not self._allowZip64:
             raise LargeZipFile("Filesize would require ZIP64 extensions")
         self.fp.write(zinfo.FileHeader(zip64))
-        
-        # Check if we were passed a file-like object
-        # TODO: Add more possibilities and checks here. 
-        # Most important probably is iterator of file like objects so 
-        # that we can have separate streams for different parts of the input.
-        # Head of file would probably come from a StringIO object, bulk from temp file and tail from StringIO object 
-        
+
         if isinstance(compressed_input, basestring):
             self.fp.write(compressed_input)
         elif hasattr(compressed_input, '__iter__'):
