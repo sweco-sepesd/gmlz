@@ -3,15 +3,13 @@ Created on 5 nov. 2016
 
 @author: Peter Segerstedt
 '''
-import binascii, os, shutil, struct, time
+import shutil, struct, time
 from zipfile import LargeZipFile, ZipFile, ZipInfo, ZIP_DEFLATED, ZIP64_LIMIT
-
-try:
-    import zlib # We may need its compression method
-    crc32 = zlib.crc32
-except ImportError:
-    zlib = None
-    crc32 = binascii.crc32
+from StringIO import StringIO
+import zlib
+import io
+from tempfile import TemporaryFile
+crc32 = zlib.crc32
 
 def crc32_combine(crc1, crc2, len2):
     import ctypes
@@ -27,6 +25,50 @@ def crc32_combine(crc1, crc2, len2):
 
     return _zlib.crc32_combine(crc1, crc2, len2)
 
+_GMLZBUFFER_MAX_SIZE = 4096
+
+class GmlZBuffer(io.IOBase):
+    '''
+    
+    '''
+    def __init__(self):
+        self.buffer = StringIO()
+        self.compressor = zlib.compressobj(6, ZIP_DEFLATED, -9)
+        self.overflow = False
+        self.crc = 0
+        self.uncompressed_size = 0
+        self.compressed_size = 0
+        self.compressed_chunk_mark = 0
+    def write(self, data):
+        self.crc = zlib.crc32(data, self.crc) & 0xffffffff
+        self.uncompressed_size += len(data)
+        compressed_data = self.compressor.compress(data)
+        if not (compressed_data and len(compressed_data)):
+            return 0
+        compressed_size = len(compressed_data)
+        self._prepare_write(compressed_size)
+        self.buffer.write(compressed_data)
+        self.compressed_size += compressed_size
+        return compressed_size
+    def _prepare_write(self, length):
+        if self.overflow: return
+        if self.buffer.tell() + length > _GMLZBUFFER_MAX_SIZE:
+            data = self.buffer.getvalue()
+            self.buffer.close()
+            self.buffer = TemporaryFile()
+            self.buffer.write(data)
+            self.overflow = True
+    def flush(self):
+        prev_mark = self.mark
+        compressed_data = self.compressor.flush(zlib.Z_FULL_FLUSH)
+        compressed_size = len(compressed_data)
+        self._prepare_write(compressed_size)
+        self.buffer.write(compressed_data)
+        self.compressed_size += compressed_size
+        self.mark = self.buffer.tell()
+        return prev_mark, self.mark
+        # TODO: verify working, useful...
+ 
 class GmlZFile(ZipFile):
     def writecompressed(self, zinfo_or_arcname, compressed_input, crc, uncompressed_size, compressed_size, compress_type=ZIP_DEFLATED):
         """Write pre compressed data into the archive.
