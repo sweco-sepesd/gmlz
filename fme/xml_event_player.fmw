@@ -1,0 +1,674 @@
+#! <?xml version="1.0" encoding="UTF-8" ?>
+#! <WORKSPACE
+#    
+#    
+#    Command-line to run this workspace:
+#    
+#    
+#    /Library/FME/2016.1/fme /Users/Admin/Desktop/xml_event_player.fmw
+#          --XML_SOURCE "/Users/Admin/Desktop/xmldata.xml"
+#    
+#    
+#!   WARN_INVALID_XFORM_PARAM="Yes"
+#!   DOC_EXTENTS="2133.01 434.504"
+#!   BEGIN_PYTHON=""
+#!   ATTR_TYPE_ENCODING="SDF"
+#!   CATEGORY=""
+#!   PYTHON_COMPATIBILITY="27"
+#!   WORKSPACE_VERSION="1"
+#!   BEGIN_TCL=""
+#!   TITLE=""
+#!   LEGAL_TERMS_CONDITIONS=""
+#!   IGNORE_READER_FAILURE="No"
+#!   FME_SERVER_SERVICES=""
+#!   DOC_TOP_LEFT="578.005 -944.009"
+#!   LOG_MAX_RECORDED_FEATURES="200"
+#!   END_PYTHON=""
+#!   REQUIREMENTS=""
+#!   SOURCE_ROUTING_FILE=""
+#!   FME_STROKE_MAX_DEVIATION="0"
+#!   ZOOM_SCALE="100"
+#!   MAX_LOG_FEATURES="200"
+#!   FME_REPROJECTION_ENGINE="FME"
+#!   HISTORY=""
+#!   TERMINATE_REJECTED="YES"
+#!   DESTINATION="NONE"
+#!   REQUIREMENTS_KEYWORD=""
+#!   SOURCE="NONE"
+#!   FME_IMPLICIT_CSMAP_REPROJECTION_MODE="Auto"
+#!   PASSWORD=""
+#!   SHOW_ANNOTATIONS="true"
+#!   DESCRIPTION=""
+#!   LOG_FILE=""
+#!   REDIRECT_TERMINATORS="NONE"
+#!   FME_DOCUMENT_GUID="66da5344-0a16-11e7-bc2c-28cfe95021a1"
+#!   USAGE=""
+#!   LAST_SAVE_BUILD="FME(R) 2016.1.3.1 (20161207 - Build 16716 - macosx)"
+#!   END_TCL=""
+#!   DESTINATION_ROUTING_FILE=""
+#!   FME_GEOMETRY_HANDLING="Enhanced"
+#!   LAST_SAVE_DATE="2017-03-16T08:11:11"
+#!   FME_BUILD_NUM="16716"
+#!   FME_DOCUMENT_PRIORGUID="cd4f5b04-09aa-11e7-945b-28cfe95021a1"
+#!   SHOW_INFO_NODES="true"
+#!   EXPLICIT_BOOKMARK_ORDER="false"
+#!   MULTI_WRITER_DATASET_ORDER="BY_ID"
+#!   VIEW_POSITION="-99.001 135.001"
+#! >
+#! <DATASETS>
+#! </DATASETS>
+#! <DATA_TYPES>
+#! </DATA_TYPES>
+#! <GEOM_TYPES>
+#! </GEOM_TYPES>
+#! <FEATURE_TYPES>
+#! </FEATURE_TYPES>
+#! <FMESERVER>
+#! </FMESERVER>
+#! <GLOBAL_PARAMETERS>
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI OPTIONAL FILENAME_MUSTEXIST_OR_ATTR XML_SOURCE XML_Files|*.xml|All_Files|*.* XML Source:"
+#!   DEFAULT_VALUE="$(FME_MF_DIR)xmldata.xml"
+#!   IS_STAND_ALONE="true"
+#! />
+#! </GLOBAL_PARAMETERS>
+#! <COMMENTS>
+#! <COMMENT
+#!   IDENTIFIER="6"
+#!   COMMENT_VALUE="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&#10;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&#10;p, li { white-space: pre-wrap; }&#10;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica neue&apos;; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;2 minutes 52.2 seconds. (CPU: 169.3s user, 1.5s system)&lt;/span&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#000000;&quot;&gt;END - ProcessID: 70356, peak process memory usage: 0 kB, current process memory usage: 121460 kB&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"
+#!   POSITION="1413.01 -894.009"
+#!   TOP_LEFT="1413.01 -894.009"
+#!   BOTTOM_RIGHT="2163.01 -944.009"
+#!   BOUNDING_RECT="1413.01 -894.009 750 50"
+#!   ORDER="5e+14"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   COLOUR="1,1,0.784314,0.192157"
+#!   SIZE_POLICY="10"
+#!   COMMENT_TYPE="REGULAR"
+#!   ANCHORED_NODE="0"
+#! />
+#! </COMMENTS>
+#! <CONSTANTS>
+#! </CONSTANTS>
+#! <BOOKMARKS>
+#! </BOOKMARKS>
+#! <TRANSFORMERS>
+#! <TRANSFORMER
+#!   IDENTIFIER="1"
+#!   TYPE="Creator"
+#!   VERSION="5"
+#!   POSITION="578.005 -509.505"
+#!   BOUNDING_RECT="578.005 -509.505 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16716"
+#! >
+#!     <OUTPUT_FEAT NAME="CREATED"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ATEND" PARM_VALUE="no"/>
+#!     <XFORM_PARM PARM_NAME="NUM" PARM_VALUE="1"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="CRE_ATTR" PARM_VALUE="_creation_instance"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="Creator"/>
+#!     <XFORM_PARM PARM_NAME="COORDS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="GEOMTYPE" PARM_VALUE="Geometry Object"/>
+#!     <XFORM_PARM PARM_NAME="GEOM" PARM_VALUE="&lt;lt&gt;?xml&lt;space&gt;version=&lt;quote&gt;1.0&lt;quote&gt;&lt;space&gt;encoding=&lt;quote&gt;US_ASCII&lt;quote&gt;&lt;space&gt;standalone=&lt;quote&gt;no&lt;quote&gt;&lt;space&gt;?&lt;gt&gt;&lt;lt&gt;geometry&lt;space&gt;dimension=&lt;quote&gt;2&lt;quote&gt;&lt;gt&gt;&lt;lt&gt;null&lt;solidus&gt;&lt;gt&gt;&lt;lt&gt;&lt;solidus&gt;geometry&lt;gt&gt;"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="COORDSYS" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="7"
+#!   TYPE="Logger"
+#!   VERSION="3"
+#!   POSITION="2115.01 -633.006"
+#!   BOUNDING_RECT="2115.01 -633.006 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16716"
+#! >
+#!     <OUTPUT_FEAT NAME="LOGGED"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="xml_event" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="MAXCOORDS" PARM_VALUE="20"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MAXFEATS" PARM_VALUE="20"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="PythonCaller_Output"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MESSAGE" PARM_VALUE="Feature is:"/>
+#!     <XFORM_PARM PARM_NAME="FEATURE_TYPE" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="9"
+#!   TYPE="SubDocumentTransformer"
+#!   VERSION="0"
+#!   POSITION="1302.01 -509.505"
+#!   BOUNDING_RECT="1302.01 -509.505 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16716"
+#! >
+#!     <OUTPUT_FEAT NAME="Events"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="xml_event" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="XML_SOURCE" PARM_VALUE="$(XML_SOURCE)"/>
+#!     <XFORM_PARM PARM_NAME="EVENTS" PARM_VALUE="processing_instruction not_standalone attlist_decl end_element start_cdata_section end_cdata_section xml_decl end_doctype_decl skipped_entity unparsed_entity_decl comment external_entity_ref start_doctype_decl start_namespace_decl notation_decl character_data element_decl start_element end_namespace_decl entity_decl"/>
+#!     <XFORM_PARM PARM_NAME="SUB_DOC_NAME" PARM_VALUE="XMLEventPlayer"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="XMLEventPlayer"/>
+#!     <XFORM_PARM PARM_NAME="__COMPOUND_PARAMETERS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="8"
+#!   TYPE="Inspector"
+#!   VERSION="3"
+#!   POSITION="2711.01 -633.006"
+#!   BOUNDING_RECT="2711.01 -633.006 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16716"
+#! >
+#!     <XFORM_PARM PARM_NAME="POINTCLOUD_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="RASTER_NUM_COLS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="TACKATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="RASTER_VISUALIZATION_OPTION" PARM_VALUE="No Reduction"/>
+#!     <XFORM_PARM PARM_NAME="RASTER_START_ROW" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="AREA_COLOR" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="RASTER_NUM_ROWS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="THINNER_TYPE_DISPLAY" PARM_VALUE="No Thinning"/>
+#!     <XFORM_PARM PARM_NAME="PEN_COLOR" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="THINNER_INTERVAL" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="PythonCaller_Output_Logged"/>
+#!     <XFORM_PARM PARM_NAME="VECTOR_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="RASTER_START_COL" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="THINNER_MAX_NUM_POINTS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="RASTER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! </TRANSFORMERS>
+#! <FEAT_LINKS>
+#! <FEAT_LINK
+#!   IDENTIFIER="10"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="9"
+#!   SOURCE_PORT_DESC="fo 0 CREATED"
+#!   TARGET_PORT_DESC="fi 0 Input"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="12"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="fo 0 LOGGED"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="11"
+#!   SOURCE_NODE="9"
+#!   TARGET_NODE="7"
+#!   SOURCE_PORT_DESC="fo 0 Events"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! </FEAT_LINKS>
+#! <BREAKPOINTS>
+#! </BREAKPOINTS>
+#! <ATTR_LINKS>
+#! </ATTR_LINKS>
+#! <SUBDOCUMENTS>
+#! <SUBDOCUMENT
+#!   NAME="XMLEventPlayer"
+#!   CATEGORY=""
+#!   REQUIREMENTS="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;"
+#!   IS_VISIBLE="true"
+#!   FME_DOCUMENT_GUID=""
+#!   DOC_DYNAMIC_INPUT_ATTRS="0"
+#!   HISTORY=""
+#!   DOC_EXTENTS="1878 547.503"
+#!   USAGE="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;"
+#!   TITLE="XMLEventPlayer"
+#!   ZOOM_SCALE="100"
+#!   LEGAL_TERMS_CONDITIONS="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;"
+#!   VIEW_POSITION="-402.004 108.001"
+#!   DOC_TOP_LEFT="-840 -547.503"
+#!   FME_PROCESS_COUNT="NO_PARALLELISM"
+#!   FMX_ATTRIBUTE_PROPOGATION_MODE="AUTO"
+#!   REQUIREMENTS_KEYWORD="none"
+#!   FME_DOCUMENT_PRIORGUID=""
+#!   FME_PROCESS_GROUP_BY=""
+#!   FME_PROCESS_GROUPS_ORDERED="No"
+#!   SUPPRESS_UPGRADE="false"
+#!   DESCRIPTION="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;"
+#!   XFORM_DEPRECATED="No"
+#! >
+#! <GLOBAL_PARAMETERS>
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI TEXT_EDIT_OR_NUM_MULTI_FEATURE_OR_ATTR XML_SOURCE &quot; &quot; XML Source:"
+#!   DEFAULT_VALUE=""
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI OPTIONAL LISTBOX_OR_ATTR EVENTS attlist_decl%character_data%comment%element_decl%end_cdata_section%end_doctype_decl%end_element%end_namespace_decl%entity_decl%external_entity_ref%not_standalone%notation_decl%processing_instruction%skipped_entity%start_cdata_section%start_doctype_decl%start_element%start_namespace_decl%unparsed_entity_decl%xml_decl Events:"
+#!   DEFAULT_VALUE="start_element"
+#!   IS_STAND_ALONE="true"
+#! />
+#! </GLOBAL_PARAMETERS>
+#! <COMMENTS>
+#! </COMMENTS>
+#! <CONSTANTS>
+#! </CONSTANTS>
+#! <BOOKMARKS>
+#! </BOOKMARKS>
+#! <TRANSFORMERS>
+#! <TRANSFORMER
+#!   IDENTIFIER="1"
+#!   TYPE="PythonCaller"
+#!   VERSION="4"
+#!   POSITION="262 -1.17187e-07"
+#!   BOUNDING_RECT="262 -1.17187e-07 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16716"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="__xml_source" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="__events" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="HIDE_ATTRIBUTES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NEW_ATTRIBUTES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSOURCE" PARM_VALUE="import&lt;space&gt;xml.etree.cElementTree&lt;space&gt;as&lt;space&gt;et&lt;lf&gt;import&lt;space&gt;fmeobjects&lt;lf&gt;class&lt;space&gt;FeatureProcessor&lt;openparen&gt;object&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;__init__&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;pass&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;input&lt;openparen&gt;self&lt;comma&gt;feature&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;source&lt;space&gt;=&lt;space&gt;feature.getAttribute&lt;openparen&gt;&lt;apos&gt;__xml_source&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;get&lt;space&gt;an&lt;space&gt;iterable&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;events&lt;space&gt;=&lt;space&gt;&lt;openparen&gt;&lt;quote&gt;start&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;end&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;start-ns&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;end-ns&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;context&lt;space&gt;=&lt;space&gt;et.iterparse&lt;openparen&gt;source&lt;comma&gt;&lt;space&gt;events=events&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;turn&lt;space&gt;it&lt;space&gt;into&lt;space&gt;an&lt;space&gt;iterator&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;context&lt;space&gt;=&lt;space&gt;iter&lt;openparen&gt;context&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;get&lt;space&gt;the&lt;space&gt;root&lt;space&gt;element&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;root&lt;space&gt;=&lt;space&gt;None&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;i&lt;space&gt;=&lt;space&gt;1&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;n&lt;space&gt;=&lt;space&gt;&lt;openbracket&gt;&lt;closebracket&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;event&lt;comma&gt;&lt;space&gt;elem&lt;space&gt;in&lt;space&gt;context:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;i&lt;space&gt;==&lt;space&gt;1000:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;clone&lt;space&gt;=&lt;space&gt;feature.clone&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;clone.setAttribute&lt;openparen&gt;&lt;apos&gt;local_name&lt;opencurly&gt;&lt;closecurly&gt;&lt;apos&gt;&lt;comma&gt;&lt;space&gt;n&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;clone&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;n&lt;space&gt;=&lt;space&gt;&lt;openbracket&gt;&lt;closebracket&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;i&lt;space&gt;=&lt;space&gt;1&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;i&lt;space&gt;+=&lt;space&gt;1&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;n.append&lt;openparen&gt;event&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;root:&lt;space&gt;root.clear&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;elif&lt;space&gt;event&lt;space&gt;==&lt;space&gt;&lt;apos&gt;start&lt;apos&gt;:&lt;space&gt;rot&lt;space&gt;=&lt;space&gt;elem&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;len&lt;openparen&gt;n&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;local_name&lt;opencurly&gt;&lt;closecurly&gt;&lt;apos&gt;&lt;comma&gt;&lt;space&gt;n&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;feature&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;close&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;pass"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="PythonCaller"/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSYMBOL" PARM_VALUE="FeatureProcessor"/>
+#!     <XFORM_PARM PARM_NAME="ADVANCED_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="2"
+#!   TYPE="AttributeCreator"
+#!   VERSION="8"
+#!   POSITION="-288.003 -282.003"
+#!   BOUNDING_RECT="-288.003 -282.003 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16716"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="__xml_source" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="__events" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ATTR_TABLE" PARM_VALUE="&quot;&quot; __xml_source SET_TO $(XML_SOURCE)"/>
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTE_HANDLING" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NUM_SUBSEQUENT_FEATURES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="NULL_ATTR_VALUE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="AttributeCreator"/>
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTE_GRP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NULL_ATTR_MODE_DISPLAY" PARM_VALUE="No Substitution"/>
+#!     <XFORM_PARM PARM_NAME="MULTI_FEATURE_MODE" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NUM_PRIOR_FEATURES" PARM_VALUE="&lt;Unused&gt;"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="8"
+#!   TYPE="PythonCaller"
+#!   VERSION="4"
+#!   POSITION="262 -245.002"
+#!   BOUNDING_RECT="262 -245.002 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16716"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="__xml_source" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="__events" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="xml_event" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="HIDE_ATTRIBUTES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NEW_ATTRIBUTES" PARM_VALUE="xml_event"/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSOURCE" PARM_VALUE="import&lt;space&gt;fmeobjects&lt;lf&gt;import&lt;space&gt;xml.parsers.expat&lt;lf&gt;import&lt;space&gt;json&lt;lf&gt;&lt;lf&gt;HANDLER_LUT&lt;space&gt;=&lt;space&gt;&lt;opencurly&gt;&lt;apos&gt;start_doctype_decl&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;StartDoctypeDeclHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;start_cdata_section&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;StartCdataSectionHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;unparsed_entity_decl&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;UnparsedEntityDeclHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;element_decl&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;ElementDeclHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;not_standalone&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;NotStandaloneHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;character_data&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;CharacterDataHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;end_namespace_decl&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;EndNamespaceDeclHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;default&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;DefaultHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;end_element&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;EndElementHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;attlist_decl&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;AttlistDeclHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;comment&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;CommentHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;end_doctype_decl&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;EndDoctypeDeclHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;external_entity_ref&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;ExternalEntityRefHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;end_cdata_section&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;EndCdataSectionHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;processing_instruction&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;ProcessingInstructionHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;start_element&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;StartElementHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;xml_decl&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;XmlDeclHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;start_namespace_decl&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;StartNamespaceDeclHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;skipped_entity&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;SkippedEntityHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;entity_decl&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;EntityDeclHandler&lt;apos&gt;&lt;lf&gt;&lt;comma&gt;&lt;space&gt;&lt;apos&gt;notation_decl&lt;apos&gt;:&lt;space&gt;&lt;apos&gt;NotationDeclHandler&lt;apos&gt;&lt;lf&gt;&lt;closecurly&gt;&lt;lf&gt;&lt;lf&gt;class&lt;space&gt;FeatureProcessor&lt;openparen&gt;object&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;__init__&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;pass&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;create_feature&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;xml_event&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature&lt;space&gt;=&lt;space&gt;fmeobjects.FMEFeature&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;xml_event&lt;apos&gt;&lt;comma&gt;&lt;space&gt;xml_event&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;return&lt;space&gt;feature&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;start_element&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;name&lt;comma&gt;&lt;space&gt;attrs&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature&lt;space&gt;=&lt;space&gt;self.create_feature&lt;openparen&gt;&lt;apos&gt;start_element&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;name&lt;apos&gt;&lt;comma&gt;&lt;space&gt;name&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;attrs&lt;apos&gt;&lt;comma&gt;&lt;space&gt;json.dumps&lt;openparen&gt;attrs&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;feature&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;comment&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;data&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature&lt;space&gt;=&lt;space&gt;self.create_feature&lt;openparen&gt;&lt;apos&gt;comment&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;data&lt;apos&gt;&lt;comma&gt;&lt;space&gt;data&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;feature&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;processing_instruction&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;target&lt;comma&gt;&lt;space&gt;data&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature&lt;space&gt;=&lt;space&gt;self.create_feature&lt;openparen&gt;&lt;apos&gt;processing_instruction&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;target&lt;apos&gt;&lt;comma&gt;&lt;space&gt;target&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;data&lt;apos&gt;&lt;comma&gt;&lt;space&gt;data&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;feature&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;xml_decl&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;version&lt;comma&gt;&lt;space&gt;encoding&lt;comma&gt;&lt;space&gt;standalone&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature&lt;space&gt;=&lt;space&gt;self.create_feature&lt;openparen&gt;&lt;apos&gt;xml_decl&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;version&lt;space&gt;!=&lt;space&gt;None:&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;version&lt;apos&gt;&lt;comma&gt;&lt;space&gt;version&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;encoding&lt;space&gt;!=&lt;space&gt;None:&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;encoding&lt;apos&gt;&lt;comma&gt;&lt;space&gt;encoding&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;standalone&lt;space&gt;!=&lt;space&gt;None:&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;standalone&lt;apos&gt;&lt;comma&gt;&lt;space&gt;standalone&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;feature&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;start_namespace_decl&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;prefix&lt;comma&gt;&lt;space&gt;uri&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature&lt;space&gt;=&lt;space&gt;self.create_feature&lt;openparen&gt;&lt;apos&gt;start_namespace_decl&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;prefix&lt;apos&gt;&lt;comma&gt;&lt;space&gt;prefix&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;uri&lt;apos&gt;&lt;comma&gt;&lt;space&gt;uri&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;feature&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;end_namespace_decl&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;prefix&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature&lt;space&gt;=&lt;space&gt;self.create_feature&lt;openparen&gt;&lt;apos&gt;end_namespace_decl&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;prefix&lt;apos&gt;&lt;comma&gt;&lt;space&gt;prefix&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;feature&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;end_element&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;name&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature&lt;space&gt;=&lt;space&gt;self.create_feature&lt;openparen&gt;&lt;apos&gt;end_element&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;name&lt;apos&gt;&lt;comma&gt;&lt;space&gt;name&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;feature&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;character_data&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;data&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature&lt;space&gt;=&lt;space&gt;self.create_feature&lt;openparen&gt;&lt;apos&gt;character_data&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;feature.setAttribute&lt;openparen&gt;&lt;apos&gt;data&lt;apos&gt;&lt;comma&gt;&lt;space&gt;data&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;feature&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;input&lt;openparen&gt;self&lt;comma&gt;feature&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;source&lt;space&gt;=&lt;space&gt;feature.getAttribute&lt;openparen&gt;&lt;apos&gt;__xml_source&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;events&lt;space&gt;=&lt;space&gt;feature.getAttribute&lt;openparen&gt;&lt;apos&gt;__events&lt;apos&gt;&lt;closeparen&gt;.split&lt;openparen&gt;&lt;apos&gt;&lt;space&gt;&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;p&lt;space&gt;=&lt;space&gt;xml.parsers.expat.ParserCreate&lt;openparen&gt;namespace_separator=&lt;apos&gt;&lt;space&gt;&lt;apos&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;event&lt;space&gt;in&lt;space&gt;events:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;hasattr&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;event&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;setattr&lt;openparen&gt;p&lt;comma&gt;&lt;space&gt;HANDLER_LUT&lt;openbracket&gt;event&lt;closebracket&gt;&lt;comma&gt;&lt;space&gt;getattr&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;event&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;with&lt;space&gt;open&lt;openparen&gt;source&lt;comma&gt;&lt;space&gt;&lt;apos&gt;rb&lt;apos&gt;&lt;closeparen&gt;&lt;space&gt;as&lt;space&gt;fin:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;chunk&lt;space&gt;in&lt;space&gt;iter&lt;openparen&gt;&lt;openparen&gt;lambda:fin.read&lt;openparen&gt;1024*64&lt;closeparen&gt;&lt;closeparen&gt;&lt;comma&gt;&lt;apos&gt;&lt;apos&gt;&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;p.Parse&lt;openparen&gt;chunk&lt;comma&gt;&lt;space&gt;False&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;p.Parse&lt;openparen&gt;&lt;apos&gt;&lt;apos&gt;&lt;comma&gt;&lt;space&gt;True&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;close&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;pass"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="PythonCaller_2"/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSYMBOL" PARM_VALUE="FeatureProcessor"/>
+#!     <XFORM_PARM PARM_NAME="ADVANCED_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="12"
+#!   TYPE="Logger"
+#!   VERSION="3"
+#!   POSITION="-252.003 -547.503"
+#!   BOUNDING_RECT="-252.003 -547.503 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16716"
+#! >
+#!     <OUTPUT_FEAT NAME="LOGGED"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="__xml_source" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="__events" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="MAXCOORDS" PARM_VALUE="20"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MAXFEATS" PARM_VALUE="20"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="Logger"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MESSAGE" PARM_VALUE="Feature is:"/>
+#!     <XFORM_PARM PARM_NAME="FEATURE_TYPE" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="15"
+#!   TYPE="ParameterFetcher"
+#!   VERSION="4"
+#!   POSITION="-288.003 -60.4967"
+#!   BOUNDING_RECT="-288.003 -60.4967 -1 -1"
+#!   ORDER="5e+14"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16716"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="__events" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ATTR_LIST" PARM_VALUE="__events {$(EVENTS)}"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="ParameterFetcher"/>
+#! </TRANSFORMER>
+#! </TRANSFORMERS>
+#! <SUBDOCUMENT_IOS>
+#! <SUBDOCUMENT_IO
+#!   IDENTIFIER="4"
+#!   NAME="Events"
+#!   POSITION="1038 -18.5"
+#!   BOUNDING_RECT="1038 -18.5 -1 -1"
+#!   COLLAPSED="false"
+#!   IS_SOURCE="false"
+#!   ATTR_MODE="1"
+#! >
+#!     <XFORM_ATTR ATTR_NAME="xml_event" />
+#! </SUBDOCUMENT_IO>
+#! <SUBDOCUMENT_IO
+#!   IDENTIFIER="6"
+#!   NAME="Input"
+#!   POSITION="-840 -18.5"
+#!   BOUNDING_RECT="-840 -18.5 -1 -1"
+#!   COLLAPSED="true"
+#!   PUBLISHED="true"
+#!   IS_SOURCE="true"
+#!   ATTR_MODE="0"
+#! >
+#! </SUBDOCUMENT_IO>
+#! </SUBDOCUMENT_IOS>
+#! <FEAT_LINKS>
+#! <FEAT_LINK
+#!   IDENTIFIER="16"
+#!   SOURCE_NODE="6"
+#!   TARGET_NODE="15"
+#!   SOURCE_PORT_DESC="0"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="5"
+#!   SOURCE_NODE="1"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="0"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="3"
+#!   SOURCE_NODE="2"
+#!   TARGET_NODE="1"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="false"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="13"
+#!   SOURCE_NODE="2"
+#!   TARGET_NODE="12"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="1"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="10"
+#!   SOURCE_NODE="8"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="0"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="14"
+#!   SOURCE_NODE="12"
+#!   TARGET_NODE="8"
+#!   SOURCE_PORT_DESC="fo 0 LOGGED"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="17"
+#!   SOURCE_NODE="15"
+#!   TARGET_NODE="2"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! </FEAT_LINKS>
+#! <BREAKPOINTS>
+#! </BREAKPOINTS>
+#! <ATTR_LINKS>
+#! </ATTR_LINKS>
+#! </SUBDOCUMENT>
+#! </SUBDOCUMENTS>
+#! <LOOKUP_TABLES>
+#! </LOOKUP_TABLES>
+#! </WORKSPACE>
+FME_PYTHON_VERSION 27
+DEFAULT_MACRO XML_SOURCE $(FME_MF_DIR)xmldata.xml
+GUI OPTIONAL FILENAME_EXISTING XML_SOURCE XML_Files|*.xml|All_Files|*.* XML Source:
+#! START_HEADER
+#! START_WB_HEADER
+READER_TYPE NULL
+READER_KEYWORD NULL_SOURCE
+NULL_SOURCE_DATASET null
+
+WRITER_TYPE NULL
+WRITER_KEYWORD NULL_DEST
+NULL_DEST_DATASET null
+#! END_WB_HEADER
+
+#! START_WB_HEADER
+#! END_WB_HEADER
+
+#! END_HEADER
+
+LOG_FILENAME "$(FME_MF_DIR)xml_event_player.log"
+LOG_APPEND NO
+LOG_MAX_FEATURES 200
+LOG_MAX_RECORDED_FEATURES 200
+FME_REPROJECTION_ENGINE FME
+FME_IMPLICIT_CSMAP_REPROJECTION_MODE Auto
+FME_GEOMETRY_HANDLING Enhanced
+FME_STROKE_MAX_DEVIATION 0
+LOG_FILTER_MASK -1
+# -------------------------------------------------------------------------
+
+MULTI_READER_CONTINUE_ON_READER_FAILURE No
+
+# -------------------------------------------------------------------------
+
+MACRO WORKSPACE_NAME xml_event_player
+MACRO FME_VIEWER_APP fmedatainspector
+# -------------------------------------------------------------------------
+
+INCLUDE [ if {[info exists env(FME_TEMP)] && [file isdirectory $env(FME_TEMP)]} {set gVisualizerTemp $env(FME_TEMP)}  elseif {[info exists env(TEMP)] && [file isdirectory $env(TEMP)]}  {set gVisualizerTemp $env(TEMP)}  elseif { $tcl_platform(platform) == "unix" } {set gVisualizerTemp "/tmp"} else {set gVisualizerTemp c:};  regsub -all {[ ,&]} {$(WORKSPACE_NAME)} {_} wsname; set gVisualizerTemp $gVisualizerTemp/${wsname}_[clock format [clock seconds] -format %H%M%S];  puts "MACRO WORKSPACE_TEMP_DIR $gVisualizerTemp"; 
+MACRO VISUALIZER_FEATURE_FILE $(WORKSPACE_TEMP_DIR)/inspector.ffs
+MACRO VISUALIZER_SCHEMA_FILE $(WORKSPACE_TEMP_DIR)/inspector.fsc
+MACRO VISUALIZER_CREATE_SPATIAL_INDEX YES
+DEFAULT_MACRO WB_CURRENT_CONTEXT
+# -------------------------------------------------------------------------
+
+Tcl2 proc Creator_CoordSysRemover {} {   global FME_CoordSys;   set FME_CoordSys {}; }
+MACRO Creator_XML     NOT_ACTIVATED
+MACRO Creator_CLASSIC NOT_ACTIVATED
+MACRO Creator_2D3D    2D_GEOMETRY
+MACRO Creator_COORDS  <Unused>
+INCLUDE [ if { {Geometry Object} == {Geometry Object} } {            puts {MACRO Creator_XML *} } ]
+INCLUDE [ if { {Geometry Object} == {2D Coordinate List} } {            puts {MACRO Creator_2D3D 2D_GEOMETRY};            puts {MACRO Creator_CLASSIC *} } ]
+INCLUDE [ if { {Geometry Object} == {3D Coordinate List} } {            puts {MACRO Creator_2D3D 3D_GEOMETRY};            puts {MACRO Creator_CLASSIC *} } ]
+INCLUDE [ if { {Geometry Object} == {2D Min/Max Box} } {            set comment {                We need to turn the COORDS which are                    minX minY maxX maxY                into a full polygon list of coordinates            };            set splitCoords [split [string trim {<Unused>}]];            if { [llength $splitCoords] > 4} {               set trimmedCoords {};               foreach item $splitCoords { if { $item != {} } {lappend trimmedCoords $item} };               set splitCoords $trimmedCoords;            };            if { [llength $splitCoords] != 4 } {                error {Creator: Coordinate list is expected to be a space delimited list of four numbers as 'minx miny maxx maxy' - `<Unused>' is invalid};            };            set minX [lindex $splitCoords 0];            set minY [lindex $splitCoords 1];            set maxX [lindex $splitCoords 2];            set maxY [lindex $splitCoords 3];            puts "MACRO Creator_COORDS $minX $minY $minX $maxY $maxX $maxY $maxX $minY $minX $minY";            puts {MACRO Creator_2D3D 2D_GEOMETRY};            puts {MACRO Creator_CLASSIC *} } ]
+FACTORY_DEF $(Creator_XML) CreationFactory    FACTORY_NAME Creator_XML_Creator    CREATE_AT_END no    OUTPUT FEATURE_TYPE _____CREATED______        @Geometry(FROM_ENCODED_STRING,<lt>?xml<space>version=<quote>1.0<quote><space>encoding=<quote>US_ASCII<quote><space>standalone=<quote>no<quote><space>?<gt><lt>geometry<space>dimension=<quote>2<quote><gt><lt>null<solidus><gt><lt><solidus>geometry<gt>)
+FACTORY_DEF $(Creator_CLASSIC) CreationFactory    FACTORY_NAME Creator_CLASSIC_Creator    $(Creator_2D3D) $(Creator_COORDS)    CREATE_AT_END no    OUTPUT FEATURE_TYPE _____CREATED______
+FACTORY_DEF * TeeFactory    FACTORY_NAME Creator_Cloner    INPUT FEATURE_TYPE _____CREATED______    NUMBER_OF_COPIES 1    COPY_NUMBER_ATTRIBUTE "_creation_instance"    OUTPUT FEATURE_TYPE Creator_CREATED        @Tcl2(Creator_CoordSysRemover)        @CoordSys()        fme_feature_type Creator
+
+FACTORY_DEF * BranchingFactory   FACTORY_NAME "Creator_CREATED Brancher -1 10"   INPUT FEATURE_TYPE Creator_CREATED   TARGET_FACTORY "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   OUTPUT PASSED FEATURE_TYPE *     @RemoveAttributes("Creator_CREATED Brancher -1 10".BranchingFactory.Count)
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   INPUT FEATURE_TYPE *  OUTPUT FEATURE_TYPE *
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "XMLEventPlayer Input Input Collector"   INPUT FEATURE_TYPE Creator_CREATED   OUTPUT FEATURE_TYPE XMLEventPlayer_Input
+MACRO XMLEventPlayer_WORKSPACE_NAME XMLEventPlayer
+MACRO $(XMLEventPlayer_WORKSPACE_NAME)_XFORMER_NAME XMLEventPlayer
+MACRO $(XMLEventPlayer_WORKSPACE_NAME)_TRANSFORMER_GROUP 
+MACRO $(XMLEventPlayer_WORKSPACE_NAME)___COMPOUND_PARAMETERS 
+MACRO $(XMLEventPlayer_WORKSPACE_NAME)_SUB_DOC_NAME XMLEventPlayer
+MACRO $(XMLEventPlayer_WORKSPACE_NAME)_XML_SOURCE $(XML_SOURCE$encode)
+MACRO $(XMLEventPlayer_WORKSPACE_NAME)_EVENTS processing_instruction not_standalone attlist_decl end_element start_cdata_section end_cdata_section xml_decl end_doctype_decl skipped_entity unparsed_entity_decl comment external_entity_ref start_doctype_decl start_namespace_decl notation_decl character_data element_decl start_element end_namespace_decl entity_decl
+DEFAULT_MACRO XMLEventPlayer_WORKSPACE_NAME ""
+INCLUDE [puts {MACRO WB_OLD_CONTEXT_$(XMLEventPlayer_WORKSPACE_NAME) $(WB_CURRENT_CONTEXT)};          puts {MACRO WB_CURRENT_CONTEXT $(XMLEventPlayer_WORKSPACE_NAME)}]
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(XMLEventPlayer_WORKSPACE_NAME)_Input1489648271 Input Splitter"   INPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_Input"   OUTPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_Input"
+# -------------------------------------------------------------------------
+
+Tcl2 proc $(XMLEventPlayer_WORKSPACE_NAME)_ParameterFetcher_doFetch {} {    foreach {name val} {"__events {$($(XMLEventPlayer_WORKSPACE_NAME)_EVENTS$encode)}"} {         if { [string match {*<at>*} $val] == 1 } {             set val [FME_Execute EvaluateExpression {STRING} $val {$(XMLEventPlayer_WORKSPACE_NAME)_ParameterFetcher}];         } elseif {[string match {*FME_CONDITIONAL*} $val] == 1} {             set val [FME_Execute EvaluateExpression {STRING} $val {$(XMLEventPlayer_WORKSPACE_NAME)_ParameterFetcher}];         } else {             set val [FME_DecodeTextOrAttr $val];         };       FME_SetAttribute [FME_DecodeText $name] $val    } }
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(XMLEventPlayer_WORKSPACE_NAME)_ParameterFetcher    INPUT  FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_Input"    OUTPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_ParameterFetcher_OUTPUT"         @Tcl2($(XMLEventPlayer_WORKSPACE_NAME)_ParameterFetcher_doFetch)
+
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * AttrSetFactory    FACTORY_NAME $(XMLEventPlayer_WORKSPACE_NAME)_AttributeCreator    INPUT  FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_ParameterFetcher_OUTPUT"    MULTI_FEATURE_MODE NO 	 NULL_ATTR_MODE NO_OP 	 ATTRSET_CREATE_DIRECTIVES _PROPAGATE_MISSING_FDIV 	 ATTR_ACTION "" "__xml_source" "SET_TO" "$($(XMLEventPlayer_WORKSPACE_NAME)_XML_SOURCE)"    OUTPUT OUTPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_AttributeCreator_OUTPUT"
+
+
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(XMLEventPlayer_WORKSPACE_NAME)_AttributeCreator OUTPUT Splitter"   INPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_AttributeCreator_OUTPUT"   OUTPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_AttributeCreator_OUTPUT_0_vPbaO2bmdF8="   OUTPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_AttributeCreator_OUTPUT_1_eTA24l4zshQ="
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(XMLEventPlayer_WORKSPACE_NAME)_AttributeCreator_OUTPUT_0_vPbaO2bmdF8= Disabled Nuker 0 3"   INPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_AttributeCreator_OUTPUT_0_vPbaO2bmdF8="
+# -------------------------------------------------------------------------
+
+
+FME_PYTHON_PATH "$(FME_MF_DIR)"
+
+FACTORY_DEF * PythonFactory    FACTORY_NAME $(XMLEventPlayer_WORKSPACE_NAME)_PythonCaller    INPUT  FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_AttributeCreator_OUTPUT_0_vPbaO2bmdF8="    SYMBOL_NAME FeatureProcessor    PYTHON_NAMESPACE FMEOBJECTS    SOURCE_CODE import<space>xml.etree.cElementTree<space>as<space>et<lf>import<space>fmeobjects<lf>class<space>FeatureProcessor<openparen>object<closeparen>:<lf><space><space><space><space>def<space>__init__<openparen>self<closeparen>:<lf><space><space><space><space><space><space><space><space>pass<lf><space><space><space><space>def<space>input<openparen>self<comma>feature<closeparen>:<lf><space><space><space><space><space><space><space><space>source<space>=<space>feature.getAttribute<openparen><apos>__xml_source<apos><closeparen><lf><space><space><space><space><space><space><space><space>#<space>get<space>an<space>iterable<lf><space><space><space><space><space><space><space><space>events<space>=<space><openparen><quote>start<quote><comma><space><quote>end<quote><comma><space><quote>start-ns<quote><comma><space><quote>end-ns<quote><closeparen><lf><space><space><space><space><space><space><space><space>context<space>=<space>et.iterparse<openparen>source<comma><space>events=events<closeparen><lf><lf><space><space><space><space><space><space><space><space>#<space>turn<space>it<space>into<space>an<space>iterator<lf><space><space><space><space><space><space><space><space>context<space>=<space>iter<openparen>context<closeparen><lf><lf><space><space><space><space><space><space><space><space>#<space>get<space>the<space>root<space>element<lf><space><space><space><space><space><space><space><space>root<space>=<space>None<lf><space><space><space><space><space><space><space><space>i<space>=<space>1<lf><space><space><space><space><space><space><space><space>n<space>=<space><openbracket><closebracket><lf><space><space><space><space><space><space><space><space>for<space>event<comma><space>elem<space>in<space>context:<lf><space><space><space><space><space><space><space><space><space><space><space><space>if<space>i<space>==<space>1000:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>clone<space>=<space>feature.clone<openparen><closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>clone.setAttribute<openparen><apos>local_name<opencurly><closecurly><apos><comma><space>n<closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>self.pyoutput<openparen>clone<closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>n<space>=<space><openbracket><closebracket><lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>i<space>=<space>1<lf><space><space><space><space><space><space><space><space><space><space><space><space>i<space>+=<space>1<lf><space><space><space><space><space><space><space><space><space><space><space><space>n.append<openparen>event<closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space>if<space>root:<space>root.clear<openparen><closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space>elif<space>event<space>==<space><apos>start<apos>:<space>rot<space>=<space>elem<lf><space><space><space><space><space><space><space><space>if<space>len<openparen>n<closeparen>:<lf><space><space><space><space><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>local_name<opencurly><closecurly><apos><comma><space>n<closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space>self.pyoutput<openparen>feature<closeparen><lf><space><space><space><space>def<space>close<openparen>self<closeparen>:<lf><space><space><space><space><space><space><space><space>pass    OUTPUT PYOUTPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_PythonCaller_OUTPUT"
+
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(XMLEventPlayer_WORKSPACE_NAME)_Logger_Logger    INPUT  FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_AttributeCreator_OUTPUT_1_eTA24l4zshQ="    OUTPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_Logger_LOGGED"                  @Log("$(XMLEventPlayer_WORKSPACE_NAME)_Logger: Feature is:","20","20")                  @FeatureType("$(XMLEventPlayer_WORKSPACE_NAME)_Logger_LOGGED")
+
+# -------------------------------------------------------------------------
+
+
+FME_PYTHON_PATH "$(FME_MF_DIR)"
+
+FACTORY_DEF * PythonFactory    FACTORY_NAME $(XMLEventPlayer_WORKSPACE_NAME)_PythonCaller_2    INPUT  FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_Logger_LOGGED"    SYMBOL_NAME FeatureProcessor    PYTHON_NAMESPACE FMEOBJECTS    SOURCE_CODE import<space>fmeobjects<lf>import<space>xml.parsers.expat<lf>import<space>json<lf><lf>HANDLER_LUT<space>=<space><opencurly><apos>start_doctype_decl<apos>:<space><apos>StartDoctypeDeclHandler<apos><lf><comma><space><apos>start_cdata_section<apos>:<space><apos>StartCdataSectionHandler<apos><lf><comma><space><apos>unparsed_entity_decl<apos>:<space><apos>UnparsedEntityDeclHandler<apos><lf><comma><space><apos>element_decl<apos>:<space><apos>ElementDeclHandler<apos><lf><comma><space><apos>not_standalone<apos>:<space><apos>NotStandaloneHandler<apos><lf><comma><space><apos>character_data<apos>:<space><apos>CharacterDataHandler<apos><lf><comma><space><apos>end_namespace_decl<apos>:<space><apos>EndNamespaceDeclHandler<apos><lf><comma><space><apos>default<apos>:<space><apos>DefaultHandler<apos><lf><comma><space><apos>end_element<apos>:<space><apos>EndElementHandler<apos><lf><comma><space><apos>attlist_decl<apos>:<space><apos>AttlistDeclHandler<apos><lf><comma><space><apos>comment<apos>:<space><apos>CommentHandler<apos><lf><comma><space><apos>end_doctype_decl<apos>:<space><apos>EndDoctypeDeclHandler<apos><lf><comma><space><apos>external_entity_ref<apos>:<space><apos>ExternalEntityRefHandler<apos><lf><comma><space><apos>end_cdata_section<apos>:<space><apos>EndCdataSectionHandler<apos><lf><comma><space><apos>processing_instruction<apos>:<space><apos>ProcessingInstructionHandler<apos><lf><comma><space><apos>start_element<apos>:<space><apos>StartElementHandler<apos><lf><comma><space><apos>xml_decl<apos>:<space><apos>XmlDeclHandler<apos><lf><comma><space><apos>start_namespace_decl<apos>:<space><apos>StartNamespaceDeclHandler<apos><lf><comma><space><apos>skipped_entity<apos>:<space><apos>SkippedEntityHandler<apos><lf><comma><space><apos>entity_decl<apos>:<space><apos>EntityDeclHandler<apos><lf><comma><space><apos>notation_decl<apos>:<space><apos>NotationDeclHandler<apos><lf><closecurly><lf><lf>class<space>FeatureProcessor<openparen>object<closeparen>:<lf><space><space><space><space>def<space>__init__<openparen>self<closeparen>:<lf><space><space><space><space><space><space><space><space>pass<lf><space><space><space><space>def<space>create_feature<openparen>self<comma><space>xml_event<closeparen>:<lf><space><space><space><space><space><space><space><space>feature<space>=<space>fmeobjects.FMEFeature<openparen><closeparen><lf><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>xml_event<apos><comma><space>xml_event<closeparen><lf><space><space><space><space><space><space><space><space>return<space>feature<lf><space><space><space><space>def<space>start_element<openparen>self<comma><space>name<comma><space>attrs<closeparen>:<lf><space><space><space><space><space><space><space><space>feature<space>=<space>self.create_feature<openparen><apos>start_element<apos><closeparen><lf><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>name<apos><comma><space>name<closeparen><lf><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>attrs<apos><comma><space>json.dumps<openparen>attrs<closeparen><closeparen><lf><space><space><space><space><space><space><space><space>self.pyoutput<openparen>feature<closeparen><lf><space><space><space><space>def<space>comment<openparen>self<comma><space>data<closeparen>:<lf><space><space><space><space><space><space><space><space>feature<space>=<space>self.create_feature<openparen><apos>comment<apos><closeparen><lf><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>data<apos><comma><space>data<closeparen><lf><space><space><space><space><space><space><space><space>self.pyoutput<openparen>feature<closeparen><lf><space><space><space><space>def<space>processing_instruction<openparen>self<comma><space>target<comma><space>data<closeparen>:<lf><space><space><space><space><space><space><space><space>feature<space>=<space>self.create_feature<openparen><apos>processing_instruction<apos><closeparen><lf><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>target<apos><comma><space>target<closeparen><lf><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>data<apos><comma><space>data<closeparen><lf><space><space><space><space><space><space><space><space>self.pyoutput<openparen>feature<closeparen><lf><space><space><space><space>def<space>xml_decl<openparen>self<comma><space>version<comma><space>encoding<comma><space>standalone<closeparen>:<lf><space><space><space><space><space><space><space><space>feature<space>=<space>self.create_feature<openparen><apos>xml_decl<apos><closeparen><lf><space><space><space><space><space><space><space><space>if<space>version<space>!=<space>None:<space>feature.setAttribute<openparen><apos>version<apos><comma><space>version<closeparen><lf><space><space><space><space><space><space><space><space>if<space>encoding<space>!=<space>None:<space>feature.setAttribute<openparen><apos>encoding<apos><comma><space>encoding<closeparen><lf><space><space><space><space><space><space><space><space>if<space>standalone<space>!=<space>None:<space>feature.setAttribute<openparen><apos>standalone<apos><comma><space>standalone<closeparen><lf><space><space><space><space><space><space><space><space>self.pyoutput<openparen>feature<closeparen><lf><space><space><space><space>def<space>start_namespace_decl<openparen>self<comma><space>prefix<comma><space>uri<closeparen>:<lf><space><space><space><space><space><space><space><space>feature<space>=<space>self.create_feature<openparen><apos>start_namespace_decl<apos><closeparen><lf><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>prefix<apos><comma><space>prefix<closeparen><lf><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>uri<apos><comma><space>uri<closeparen><lf><space><space><space><space><space><space><space><space>self.pyoutput<openparen>feature<closeparen><lf><space><space><space><space>def<space>end_namespace_decl<openparen>self<comma><space>prefix<closeparen>:<lf><space><space><space><space><space><space><space><space>feature<space>=<space>self.create_feature<openparen><apos>end_namespace_decl<apos><closeparen><lf><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>prefix<apos><comma><space>prefix<closeparen><lf><space><space><space><space><space><space><space><space>self.pyoutput<openparen>feature<closeparen><lf><space><space><space><space>def<space>end_element<openparen>self<comma><space>name<closeparen>:<lf><space><space><space><space><space><space><space><space>feature<space>=<space>self.create_feature<openparen><apos>end_element<apos><closeparen><lf><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>name<apos><comma><space>name<closeparen><lf><space><space><space><space><space><space><space><space>self.pyoutput<openparen>feature<closeparen><lf><space><space><space><space>def<space>character_data<openparen>self<comma><space>data<closeparen>:<lf><space><space><space><space><space><space><space><space>feature<space>=<space>self.create_feature<openparen><apos>character_data<apos><closeparen><lf><space><space><space><space><space><space><space><space>feature.setAttribute<openparen><apos>data<apos><comma><space>data<closeparen><lf><space><space><space><space><space><space><space><space>self.pyoutput<openparen>feature<closeparen><lf><space><space><space><space>def<space>input<openparen>self<comma>feature<closeparen>:<lf><space><space><space><space><space><space><space><space>source<space>=<space>feature.getAttribute<openparen><apos>__xml_source<apos><closeparen><lf><space><space><space><space><space><space><space><space>events<space>=<space>feature.getAttribute<openparen><apos>__events<apos><closeparen>.split<openparen><apos><space><apos><closeparen><lf><space><space><space><space><space><space><space><space>p<space>=<space>xml.parsers.expat.ParserCreate<openparen>namespace_separator=<apos><space><apos><closeparen><lf><space><space><space><space><space><space><space><space>for<space>event<space>in<space>events:<lf><space><space><space><space><space><space><space><space><space><space><space><space>if<space>hasattr<openparen>self<comma><space>event<closeparen>:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>setattr<openparen>p<comma><space>HANDLER_LUT<openbracket>event<closebracket><comma><space>getattr<openparen>self<comma><space>event<closeparen><closeparen><lf><space><space><space><space><space><space><space><space>with<space>open<openparen>source<comma><space><apos>rb<apos><closeparen><space>as<space>fin:<lf><space><space><space><space><space><space><space><space><space><space><space><space>for<space>chunk<space>in<space>iter<openparen><openparen>lambda:fin.read<openparen>1024*64<closeparen><closeparen><comma><apos><apos><closeparen>:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>p.Parse<openparen>chunk<comma><space>False<closeparen><lf><space><space><space><space><space><space><space><space>p.Parse<openparen><apos><apos><comma><space>True<closeparen><lf><space><space><space><space>def<space>close<openparen>self<closeparen>:<lf><space><space><space><space><space><space><space><space>pass    OUTPUT PYOUTPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_PythonCaller_2_OUTPUT"
+
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(XMLEventPlayer_WORKSPACE_NAME)_Events1489648271 Output Collector"   INPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_PythonCaller_OUTPUT"   INPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_PythonCaller_2_OUTPUT"   OUTPUT FEATURE_TYPE "$(XMLEventPlayer_WORKSPACE_NAME)_Events" @RemoveAttributes(__xml_source,__events)
+INCLUDE [puts {MACRO WB_CURRENT_CONTEXT $(WB_OLD_CONTEXT_$(XMLEventPlayer_WORKSPACE_NAME))}]
+FACTORY_DEF * TeeFactory   FACTORY_NAME "XMLEventPlayer Events Output Renamer/Nuker"   INPUT FEATURE_TYPE XMLEventPlayer_Events   OUTPUT FEATURE_TYPE XMLEventPlayer_Events
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory    FACTORY_NAME PythonCaller_Output_Logger    INPUT  FEATURE_TYPE XMLEventPlayer_Events    OUTPUT FEATURE_TYPE PythonCaller_Output_LOGGED                  @Log("PythonCaller_Output: Feature is:","20","20")                  @FeatureType(PythonCaller_Output_LOGGED)
+
+# -------------------------------------------------------------------------
+
+# Set the directive to add all the meta-attributes to the features.
+# We do this so users see all possible information in the viewed
+# features.
+
+READER_META_ATTRIBUTES fme_feature_type fme_dataset fme_basename
+# Assumption is that the workspace temp dir has been already set and created.  See controldefs.cpp - ControlDefs::writeVisualizerTempDir
+DEFAULT_MACRO WORKSPACE_TEMP_DIR
+INCLUDE [         set grpByAttrs {};         if { [string length $grpByAttrs] > 0 } {             if { [string first "@EvaluateExpression" $grpByAttrs] == 0 } {                 puts "MACRO CATMAC _$grpByAttrs" ;             } else {                set catter "" ;                set comma "" ;                foreach attr $grpByAttrs {                    set catter "$catter$comma@Value(\"$attr\")" ;                    set comma ",_," ;                } ;                puts "MACRO CATMAC _@Concatenate($catter)" ;             }         }         else {             puts "MACRO CATMAC " ;         };         set safeName "[regsub -all {[^a-zA-Z0-9]} {PythonCaller_Output_Logged} _]_[expr round(rand() * 1000000)]_[clock clicks  -milliseconds]";         puts "MACRO SAFE_FFS_NAME $safeName";         ]
+# Make the temporary directory that the FFS files will live in.
+FACTORY_DEF * CreationFactory      FACTORY_NAME PythonCaller_Output_Logged_DirCreator      OUTPUT FEATURE_TYPE __nukeme__          @Tcl2("catch {file mkdir {$(WORKSPACE_TEMP_DIR)}}")
+FACTORY_DEF * TeeFactory    FACTORY_NAME PythonCaller_Output_Logged_DirCreatorCleanerUpper    INPUT FEATURE_TYPE __nukeme__
+# Send raster, point cloud and vector features down different paths to prepare
+# them for viewing
+
+FACTORY_DEF * TestFactory    FACTORY_NAME PythonCaller_Output_Logged_FeatureDirector    INPUT  FEATURE_TYPE PythonCaller_Output_LOGGED    TEST &fme_type == "fme_raster"    OUTPUT FAILED FEATURE_TYPE PythonCaller_Output_Logged___NotRasterFeatures___    OUTPUT PASSED FEATURE_TYPE PythonCaller_Output_Logged___RasterFeatures___
+FACTORY_DEF * TestFactory    FACTORY_NAME PythonCaller_Output_Logged___FeatureDirector1    INPUT FEATURE_TYPE PythonCaller_Output_Logged___NotRasterFeatures___    TEST &fme_type == "fme_point_cloud"    OUTPUT FAILED FEATURE_TYPE PythonCaller_Output_Logged___VectorFeatures___    OUTPUT PASSED FEATURE_TYPE PythonCaller_Output_Logged___PointCloudFeatures___
+# Vector features simply may get their colors overridden
+
+FACTORY_DEF * TeeFactory    FACTORY_NAME PythonCaller_Output_Logged_VectorSetterUpper    INPUT FEATURE_TYPE PythonCaller_Output_Logged___VectorFeatures___    OUTPUT FEATURE_TYPE __viewme__
+# Point Cloud Features Might Need to be thinned
+
+# Note that we don't call the ThinPointCloud function directly, but rather
+# do it through TCL. This should allow this transformer to be used with a
+# Desktop license, even though ThinPointCloud requires Professional.
+
+Tcl2 proc PythonCaller_Output_Logged_66dbf4c4_0a16_11e7_bc2c_28cfe95021a12_thinPointCloud {} {    if {[string equal {NO_THINNING} {KEEPNPOINT}]}    {       FME_Execute ThinPointCloud NO_THINNING "\"<Unused>\"";    }    elseif {[string equal {NO_THINNING} {MAXNUMPOINTS}]}    {       FME_Execute ThinPointCloud NO_THINNING "\"<Unused>\"";    }    elseif {[string equal {NO_THINNING} {FIRSTNPOINTS}]}    {       FME_Execute ThinPointCloud NO_THINNING "\"<Unused>\"";    }    elseif {[string equal {NO_THINNING} {LASTNPOINTS}]}    {       FME_Execute ThinPointCloud NO_THINNING "\"<Unused>\"";    }; }
+FACTORY_DEF * TeeFactory    FACTORY_NAME PythonCaller_Output_Logged___PointCloudThinner    INPUT FEATURE_TYPE PythonCaller_Output_Logged___PointCloudFeatures___    OUTPUT FEATURE_TYPE __viewme__       @Tcl2("PythonCaller_Output_Logged_66dbf4c4_0a16_11e7_bc2c_28cfe95021a12_thinPointCloud")
+Tcl2 proc PythonCaller_Output_Logged_66dbf4c4_0a16_11e7_bc2c_28cfe95021a12_prepareRaster {subsetStartRow subsetNumRows subsetStartCol subsetNumCols} {    set useDI [string equal -nocase {$(FME_VIEWER_APP)} {fmedatainspector}];    if {!$useDI} {       FME_Execute ApplyRasterRotation BILINEAR;    };    set doResample [string equal {NoReduction} {Resample}];    set doSubset [string equal {NoReduction} {Subset}];    set doBounds [string equal {NoReduction} {BoundingBoxOnly}];    if {$doBounds}  {       FME_Execute GeometryType fme_polygon;    }    elseif {$doResample || $doSubset} {       set comment {          First, we need to prefix all the attributes. This is done because          we are going to call @RasterProperties, and we want to make sure          it doesn't overwrite any existing attributes.       };       set kAttrPrefix ".";       set allNames [FME_AttributeNames];       foreach oldName $allNames {          set newName $kAttrPrefix;          append newName $oldName;          FME_RenameAttribute $newName $oldName;       };       FME_Execute RasterProperties RASTER;       if {$doResample} {          set oldNumCols [FME_GetAttribute _num_columns];          set oldNumRows [FME_GetAttribute _num_rows];          set oldSpacingX [FME_GetAttribute _spacing_x];          set oldSpacingY [FME_GetAttribute _spacing_y];          set kMinNumCells 32;          set kMaxNumCells 512;          set comment {             We will only resample if both dimensions are greater than the             minimum num cells, and at least one is greater than the maximum.          };          if {$oldNumRows > $kMinNumCells && $oldNumCols > $kMinNumCells && ($oldNumRows > $kMaxNumCells || $oldNumCols > $kMaxNumCells)} {             set newSpacingX 1.0;             set newSpacingY 1.0;             if {$oldNumRows > $oldNumCols} {                set comment {                   If we have more rows than columns, we need to choose a spacing                   that reduces the number of rows to the maximum we've chosen.                };                set newSpacingY [expr 1.0 * $oldNumRows * $oldSpacingY / $kMaxNumCells];                set newSpacingX [expr 1.0 * $newSpacingY / $oldSpacingY * $oldSpacingX];                set comment {                   Now we need to check if doing this will result in the columns                   going below the minimum. If so, choose the spacing such that                   we only go down to the minimum (and not past).                };                set newNumCols [expr $oldNumCols * $oldSpacingX / $newSpacingX];                if {$newNumCols < $kMinNumCells}                {                   set newSpacingX [expr 1.0 * $oldNumCols * $oldSpacingX / $kMinNumCells];                   set newSpacingY [expr 1.0 * $newSpacingX / $oldSpacingX * $oldSpacingY];                };             }             else {                set comment {                   This is identical to the above case, except the roles of                   rows and cols are reversed.                };                set newSpacingX [expr 1.0 * $oldNumCols * $oldSpacingX / $kMaxNumCells];                set newSpacingY [expr 1.0 * $newSpacingX / $oldSpacingX * $oldSpacingY];                set newNumRows [expr $oldNumRows * $oldSpacingY / $newSpacingY];                if {$newNumRows < $kMinNumCells}                {                   set newSpacingY [expr 1.0 * $oldNumRows * $oldSpacingY / $kMinNumCells];                   set newSpacingX [expr 1.0 * $newSpacingY / $oldSpacingY * $oldSpacingX];                };             };             FME_Execute ResampleRaster CELL_SIZE $newSpacingX $newSpacingY NearestNeighbor;          };       }       elseif {$doSubset} {          set comment {             Get the value of some strings that may be attributes or constants.             Note that we pass in the attribute prefix we're using, because if             one does turn out to be an attribute, it won't actually be the exact             name in the string (since we renamed all our attributes above).          };          set rasterNumRows [FME_GetAttribute _num_rows];          set rasterNumCols [FME_GetAttribute _num_columns];          set comment {             Only do subsetting if the specified start position is actually             within the raster.          };          if {$subsetStartRow < $rasterNumRows && $subsetStartCol < $rasterNumCols}          {             set comment {                Now bound the subset to the size of the raster, so that                we don't create padding.             };             if {[expr $subsetStartRow + $subsetNumRows] > $rasterNumRows}             {                set subsetNumRows [expr $rasterNumRows - $subsetStartRow];             };             if {[expr $subsetStartCol + $subsetNumCols] > $rasterNumCols}             {                set subsetNumCols [expr $rasterNumCols - $subsetStartCol];             };             FME_Execute SubsetRaster $subsetStartRow $subsetNumRows $subsetStartCol $subsetNumCols;          };       };       set comment {          Remove all the attributes added by @RasterProperties and remove the          prefix from the real attributes. We assume they all start with an          underscore.       };       FME_Execute RemoveAttributes fme_regexp_match {^_};       foreach oldName $allNames {          set newName $kAttrPrefix;          append newName $oldName;          FME_RenameAttribute $oldName $newName;       };    }; }
+FACTORY_DEF * TeeFactory    FACTORY_NAME PythonCaller_Output_Logged_RasterSetterUpper    INPUT FEATURE_TYPE PythonCaller_Output_Logged___RasterFeatures___    OUTPUT FEATURE_TYPE __viewme__       @Tcl2("PythonCaller_Output_Logged_66dbf4c4_0a16_11e7_bc2c_28cfe95021a12_prepareRaster {<Unused>} {<Unused>} {<Unused>} {<Unused>}")
+# Now route all the features into the recorder, changing their
+# feature type to the transformer name so that they view nicely
+# PythonCaller_Output_Logged_66dbf4c4_0a16_11e7_bc2c_28cfe95021a12_VIS_FEAT_TYPE changes the feature types
+# of the features being visualized.
+
+DEFAULT_MACRO PythonCaller_Output_Logged_66dbf4c4_0a16_11e7_bc2c_28cfe95021a12_VIS_FEAT_TYPE PythonCaller_Output_Logged$(CATMAC)
+DEFAULT_MACRO VISUALIZER_FEATURE_FILE $(WORKSPACE_TEMP_DIR)/$(SAFE_FFS_NAME).ffs
+DEFAULT_MACRO VISUALIZER_CREATE_SPATIAL_INDEX NO
+# [PR#45549] The Data Inspector will limit the maximum number of features
+# it reads on WIN32, so we will correspondingly limit the number of
+# features we record here using the MAX_FEATURES_TO_RECORD directive.
+
+FACTORY_DEF * RecorderFactory    FACTORY_NAME PythonCaller_Output_Logged_Recorder    INPUT FEATURE_TYPE __viewme__  _wb_termination_feature Yes @FeatureType(TERMINATOR_@Value(_wb_termination_xformer))    INPUT FEATURE_TYPE __viewme__  @FeatureType($(PythonCaller_Output_Logged_66dbf4c4_0a16_11e7_bc2c_28cfe95021a12_VIS_FEAT_TYPE))    FEATURE_FILE "$(VISUALIZER_FEATURE_FILE)"    CREATE_SPATIAL_INDEX "$(VISUALIZER_CREATE_SPATIAL_INDEX)"    INSPECTOR "$(VISUALIZER_CREATE_SPATIAL_INDEX)"    FSC_SCHEMA _creation_instance,varchar<openparen>255<closeparen>,xml_event,varchar<openparen>255<closeparen>    MODE RECORD    RECORD_DIRECTLY_TO_DISK YES    MAX_FEATURES_TO_RECORD WIN32 2000000
+
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory   FACTORY_NAME "Final Output Nuker"   INPUT FEATURE_TYPE __nuke_me__
+
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * CreationFactory   CREATE_AT_END   OUTPUT FEATURE_TYPE __NUKEME__   @TCL("if [file exists {$(WORKSPACE_TEMP_DIR)}] {set files [glob -nocomplain -directory  {$(WORKSPACE_TEMP_DIR)} -tails *.ffs];   if {[llength $files] == 1} {    set theFile {$(WORKSPACE_TEMP_DIR)/};   append theFile [lindex $files 0];   eval FME_Execute System \173\042$(FME_HOME_UNIX)/fmedatainspector\042 --visualizer --single-application --delete-on-close --no-source-prompt -f FFS $theFile & \175;  } elseif { [llength $files] == 0 } {  catch { file delete -force {$(WORKSPACE_TEMP_DIR)} };  } else {  set filesNoExt {}; set lastfile {}; foreach {fileName} [lsort $files] { set fileNoExt [string trimright $fileName {.ffs}]; if [regexp {(.*)_[0-9]*$} $fileNoExt wholething fileNoExtBase] {  if { $fileNoExtBase == $lastfile } { continue } }; set lastfile $fileNoExt; lappend filesNoExt $fileNoExt };  eval FME_Execute System \173\042$(FME_HOME_UNIX)/fmedatainspector\042 --visualizer --single-application --delete-on-close --no-source-prompt -d {$(WORKSPACE_TEMP_DIR)} -a ffs -f FFS $filesNoExt & \175; }; }; ")
+FACTORY_DEF * TeeFactory   INPUT FEATURE_TYPE __NUKEME__
