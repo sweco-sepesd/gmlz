@@ -9,9 +9,16 @@ if "%1" equ "x64" call :set_env %1
 if "%1" equ "x86" call :set_env %1
 if "%1" equ "clean" call :clean
 if "%1" equ "gmlzip" call :gmlzip %2
+
+if %errorlevel% neq 0 goto:exit_fail
 shift
 if not "%~1"=="" goto:parse_next
+goto:exit_ok
 ::parse_next
+
+:exit_fail
+echo ERROR %errorlevel%
+::exit_fail
 
 :exit_ok
 popd
@@ -46,6 +53,7 @@ if exist %build_dir% (
 goto:eof
 ::clean
 
+
 :gmlzip
 echo building gmlzip application
 echo args: %*
@@ -56,11 +64,22 @@ if not exist %build_dir% (
 )
 
 if not exist %build_dir%\sqlite3.obj (
-    cl /c /O2 /EHs /MD "/Fo%build_dir%\\sqlite3.obj" "src\\sqlite3.c"
+    echo building sqlite
+    rem ::cl /c /O2 /EHs /MD "/Fo%build_dir%\\sqlite3.obj" "src\\sqlite3.c"
 )
 
-cl /nologo /c /O2 /EHs /MD "/Fo%build_dir%\\gmlz.obj" "src\\gmlz.cpp"
-cl /nologo /c /O2 /EHs /MD "/Fo%build_dir%\\gmlzip.obj"  "src\\gmlzip.cpp"
+if not exist %build_dir%\xmlparse.obj (
+    echo building expat
+    rem ::cl /c /O2 /EHs /MD /D WIN32 /Fo"%build_dir%\\" src\expat\xmlparse.c src\expat\xmlrole.c src\expat\xmltok.c src\expat\xmltok_impl.c src\expat\xmltok_ns.c
+)
+set defines=/D WIN32 ^
+/D NDEBUG ^
+/D _CONSOLE ^
+/D XML_STATIC ^
+/D _CRT_SECURE_NO_WARNINGS
+
+cl /nologo /c /O2 /EHs /GF /MT /Gy /Gd /W3 %defines% /Fo"%build_dir%\\" src\sqlite3.c src\expat\xmlparse.c src\expat\xmlrole.c src\expat\xmltok.c src\expat\xmltok_impl.c src\expat\xmltok_ns.c src\gmlz.cpp src\gmlzip.cpp
+::cl /nologo /c /O2 /EHs /MD "/Fo%build_dir%\\gmlzip.obj"  "src\\gmlzip.cpp"
 link /nologo /OUT:%build_dir%\\gmlzip.exe "%build_dir%\\*.obj"
 
 if "%1" neq "" (

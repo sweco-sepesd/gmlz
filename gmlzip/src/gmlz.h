@@ -3,6 +3,10 @@
 
 #define GMLZ_MAJOR_VERSION 0
 #define GMLZ_MINOR_VERSION 1
+#define GMLZ_NS_SEP ' '
+
+#define GMLZ_GML_NS "http://www.opengis.net/gml"
+#define GMLZ_GML_32_NS "http://www.opengis.net/gml/3.2"
 
 #include <string>
 #include <vector>
@@ -56,26 +60,51 @@ class DbMan
   public:
     DbMan(const char *fp);
     void open();
-    int callback(int argc, char **argv, char **azColName);
+    int tableCreated(int argc, char **argv, char **azColName);
+    void importGml(const char *fp);
+    void startElement( const char *el, const char **attr);
+    static void startElementHandler(void *data, const char *el, const char **attr)
+    {
+        static_cast<DbMan*>(data)->startElement(el, attr);
+    }
+    static int tableCreatedHandler(void *param, int argc, char **argv, char **azColName)
+    {
+        return static_cast<DbMan*>(param)->tableCreated(argc, argv, azColName);
+    }
     virtual ~DbMan();
 };
 
 class FilePath
 {
-    std::string _filepath;
-    std::vector<std::string> _dir_parts;
-    std::vector<std::string> _filename_parts;
+  std::string _filepath;
+  std::vector<std::string> _dir_parts;
+  std::vector<std::string> _filename_parts;
 
-  public:
-    FilePath(const char *src);
-    std::string basename();
-    std::string dirname();
-    std::string ext();
-    std::string filename();
-    bool exists();
+public:
+  FilePath(const char *src);
+  std::string basename();
+  std::string dirname();
+  std::string ext();
+  std::string filename();
+  std::string filepath();
+  bool exists();
 
-    virtual ~FilePath();
+  virtual ~FilePath();
 };
+
+class QName
+{
+  std::string _ns;
+  std::string _localname;
+  std::string _qname;
+
+public:
+  QName(const char *qname);
+  bool isGmlId();
+  virtual ~QName();
+};
+
+
 
 } // namespace gmlz
 

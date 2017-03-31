@@ -35,6 +35,10 @@
         "memory": "cpp",
         "xfunctional": "cpp",
         "algorithm": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "cstdint": "cpp",
+        "initializer_list": "cpp",
+        "xfacet": "cpp",
+        "xmemory0": "cpp"
     }
 }

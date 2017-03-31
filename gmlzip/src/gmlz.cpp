@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 #include <stdio.h>
+#include <iostream>
 
 namespace gmlz
 {
@@ -28,29 +29,40 @@ void DbMan::open()
         sqlite3_close(_db);
     }
     char *zErrMsg = 0;
-    rc = sqlite3_exec(_db, "CREATE TABLE msg(a int)", c_callback, this, &zErrMsg);
+    rc = sqlite3_exec(_db, "CREATE TABLE gmlid(offset integer primary key, id varchar)", DbMan::tableCreatedHandler, this, &zErrMsg);
     if (rc != SQLITE_OK)
     {
         fprintf(stderr, "SQL error: %s\n", zErrMsg);
         sqlite3_free(zErrMsg);
     }
 }
-int DbMan::callback(int argc, char **argv, char **azColName){
+int DbMan::tableCreated(int argc, char **argv, char **azColName){
     fprintf(stdout, "callback %d\n", argc);
     return 0;
 }
+
+void DbMan::importGml(const char *fp)
+{
+//TODO: Move parsing from gmlzip main to here
+}
+
+void DbMan::startElement(const char *el, const char **attr)
+{
+    for (int i = 0; attr[i]; i += 2) {
+		gmlz::QName qname(attr[i]);
+		if(qname.isGmlId())
+		{
+			//n_elements++;
+			std::string val(attr[i + 1]);
+			//std::cout << val << std::endl;
+		}
+    }
+}
+
 DbMan::~DbMan()
 {
     sqlite3_close(_db);
     fprintf(stdout, "Bye from DbMan\n");
-}
-
-
-
-static int c_callback(void *param, int argc, char **argv, char **azColName)
-{
-    DbMan* dbMan = reinterpret_cast<DbMan*>(param);
-    return dbMan->callback(argc, argv, azColName);
 }
 
 FilePath::FilePath(const char *src) : _filepath(src)
@@ -106,6 +118,10 @@ std::string FilePath::filename()
     std::for_each(_filename_parts.begin(), _filename_parts.end(), [&ss](const std::string &s) { ss << s; });
     return ss.str();
 }
+std::string FilePath::filepath()
+{
+    return std::string(_filepath);
+}
 std::string FilePath::dirname()
 {
     std::ostringstream ss;
@@ -114,4 +130,25 @@ std::string FilePath::dirname()
     return ss.str();
 }
 FilePath::~FilePath() {}
+
+QName::QName(const char *qname) : _qname(qname)
+{
+    std::string::size_type pos;
+    pos = _qname.find(GMLZ_NS_SEP);
+    if (pos != std::string::npos) 
+    {
+        _ns = _qname.substr(0, pos);
+        _localname = _qname.substr(pos + 1);
+    }
+}
+
+bool QName::isGmlId()
+{
+    if((_ns == GMLZ_GML_NS || _ns == GMLZ_GML_32_NS) && _localname == "id")
+        return  true;
+    return false;
+}
+
+QName::~QName() {}
+
 } // namespace gmlz
