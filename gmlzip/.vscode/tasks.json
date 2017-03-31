@@ -1,9 +1,20 @@
 {
     "version": "0.1.0",
-    "taskName": "build",
-    "command": "${cwd}/.vscode/build.bat",
-    "args": [
-        "x64",
-        "C:\\Users\\sepesd\\Downloads\\167_CadastralParcel.gml"
+    "tasks": [
+        {
+            "taskName": "build",
+            "command": "${cwd}/.vscode/build.bat",
+            "args": [
+                  "x64"
+                //, "clean"
+                , "gmlzip"
+                , "C:\\Users\\sepesd\\Downloads\\167_CadastralParcel.gml"
+                //, "x86"
+                //, "clean"
+                //, "gmlzip"
+                //, "C:\\Users\\sepesd\\Downloads\\167_CadastralParcel.gml"
+                //, "dummy"
+            ]
+        }
     ]
 }
