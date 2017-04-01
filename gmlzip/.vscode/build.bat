@@ -9,6 +9,7 @@ if "%1" equ "x64" call :set_env %1
 if "%1" equ "x86" call :set_env %1
 if "%1" equ "clean" call :clean
 if "%1" equ "gmlzip" call :gmlzip %2
+if "%1" equ "gmlz" call :gmlz
 
 if %errorlevel% neq 0 goto:exit_fail
 shift
@@ -53,6 +54,18 @@ if exist %build_dir% (
 goto:eof
 ::clean
 
+:gmlz
+echo compiling gmlz files only
+
+set defines=/D WIN32 ^
+/D NDEBUG ^
+/D _CONSOLE ^
+/D XML_STATIC ^
+/D _CRT_SECURE_NO_WARNINGS
+
+cl /nologo /c /O2 /EHs /GF /MT /Gy /Gd /W3 %defines% /Fo"%build_dir%\\" src\gmlz.cpp src\gmlzip.cpp
+::gmlz
+goto:eof
 
 :gmlzip
 echo building gmlzip application

@@ -5,6 +5,7 @@
 #include <sstream>
 #include <stdio.h>
 #include <iostream>
+#include <cstdio>
 
 namespace gmlz
 {
@@ -16,34 +17,127 @@ std::string banner()
     return std::string(buffer);
 }
 
-DbMan::DbMan(const char *fp): _filepath(fp)
+DbMan::DbMan(const char *fp): _filepath(fp), _n_elements(0)
 {
 }
 
-void DbMan::open()
+int  DbMan::_prepare()
 {
+    char *zErrMsg = 0;
+    int rc = sqlite3_exec(_db, "create table gml_id(pos integer primary key, gml_id varchar)", DbMan::tableCreatedHandler, this, &zErrMsg);
+    if (rc != SQLITE_OK)
+    {
+        fprintf(stderr, "SQL error: %s\n", zErrMsg);
+        sqlite3_free(zErrMsg);
+        //return rc;
+    }
+    rc = sqlite3_prepare_v2(_db, "insert into gml_id(pos, gml_id) values (?,?)",  -1, &_stmt_insert_gmlid, 0);
+    if (rc != SQLITE_OK)
+    {
+        fprintf(stderr, "SQL error: %s\n", zErrMsg);
+        sqlite3_free(zErrMsg);
+        return rc;
+    }
+    printf("\nThe gml_id insert statement has %d wildcards\n", sqlite3_bind_parameter_count(_stmt_insert_gmlid));
+    return 0;
+}
+
+void DbMan::open(bool overwrite)
+{
+    if(overwrite)
+    {
+        FilePath dbFilePath(_filepath.c_str());
+        if(dbFilePath.exists())
+        {
+            dbFilePath.remove();
+        }
+    }
     int rc = sqlite3_open(_filepath.c_str(), &_db);
     if (rc)
     {
         fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(_db));
         sqlite3_close(_db);
     }
-    char *zErrMsg = 0;
-    rc = sqlite3_exec(_db, "CREATE TABLE gmlid(offset integer primary key, id varchar)", DbMan::tableCreatedHandler, this, &zErrMsg);
-    if (rc != SQLITE_OK)
-    {
-        fprintf(stderr, "SQL error: %s\n", zErrMsg);
-        sqlite3_free(zErrMsg);
-    }
+    rc = _prepare();
+
 }
+
 int DbMan::tableCreated(int argc, char **argv, char **azColName){
     fprintf(stdout, "callback %d\n", argc);
     return 0;
 }
 
-void DbMan::importGml(const char *fp)
+int DbMan::importGml(const char *fp)
 {
-//TODO: Move parsing from gmlzip main to here
+    int BUFF_SIZE = 4096;
+	if (FILE *fh = fopen(fp, "r"))
+	{
+        _parser = XML_ParserCreateNS(NULL, GMLZ_NS_SEP);
+            
+        XML_SetUserData(_parser, this);
+        XML_SetStartElementHandler(_parser, DbMan::startElementHandler);
+	    int len = 0;
+		bool fSuccess = true;
+        sqlite3_exec(_db, "begin transaction", NULL, NULL, NULL);
+		while (!feof (fh) && fSuccess)
+	    {
+			void *buff = XML_GetBuffer(_parser, BUFF_SIZE);
+			len = fread(buff, 1,  BUFF_SIZE, fh);
+			if (XML_STATUS_ERROR == XML_ParseBuffer(_parser, len, len == 0))
+			{
+				std::cout << "ERROR: " << XML_ErrorString(XML_GetErrorCode(_parser)) << " (" << XML_GetErrorCode(_parser) << ")";
+				std::cout << " at line " << XML_GetCurrentLineNumber(_parser) << std::endl;
+				break;
+			}
+	    }
+
+	    XML_ParserFree(_parser);
+	    fclose(fh);
+        
+        sqlite3_exec(_db, "create unique index ix_gml_id on gml_id(gml_id)", NULL, NULL, NULL);
+        sqlite3_exec(_db, "end transaction", NULL, NULL, NULL);
+		std::cout << "n elements: " << _n_elements << std::endl;
+ 	}
+	else
+	{
+	    return 1;
+	}
+    return 0;
+}
+
+int DbMan::_insert_gml_id(long position, const char *gml_id)
+{
+
+    sqlite3_reset(_stmt_insert_gmlid);
+
+    if (sqlite3_bind_int64(
+            _stmt_insert_gmlid,
+            1, // Index of wildcard
+            position) != SQLITE_OK)
+    {
+        printf("\nCould not bind int64.\n");
+        return 1;
+    }
+
+    if (sqlite3_bind_text(
+            _stmt_insert_gmlid,
+            2, // Index of wildcard
+            gml_id,
+            strlen(gml_id), // length of text
+            SQLITE_STATIC) != SQLITE_OK)
+    {
+        printf("\nCould not bind text.\n");
+        return 1;
+    }
+
+    if (sqlite3_step(_stmt_insert_gmlid) != SQLITE_DONE)
+    {
+        printf("\nCould not step (execute) stmt.\n");
+        return 1;
+    }
+
+    _n_elements++;
+    return 0;
 }
 
 void DbMan::startElement(const char *el, const char **attr)
@@ -52,17 +146,18 @@ void DbMan::startElement(const char *el, const char **attr)
 		gmlz::QName qname(attr[i]);
 		if(qname.isGmlId())
 		{
-			//n_elements++;
-			std::string val(attr[i + 1]);
-			//std::cout << val << std::endl;
+            long position = XML_GetCurrentByteIndex(_parser);
+            _insert_gml_id(position, attr[i + 1]);
+			break;
 		}
     }
 }
 
 DbMan::~DbMan()
 {
+    sqlite3_finalize(_stmt_insert_gmlid);
     sqlite3_close(_db);
-    fprintf(stdout, "Bye from DbMan\n");
+    fprintf(stdout, "Bye from DbMan %d\n", _n_elements);
 }
 
 FilePath::FilePath(const char *src) : _filepath(src)
@@ -98,6 +193,14 @@ std::string FilePath::ext()
 std::string FilePath::basename()
 {
     return _filename_parts[0];
+}
+void FilePath::remove()
+{
+
+  if( std::remove( _filepath.c_str() ) != 0 )
+    std::cout << "Error deleting file " << _filepath <<  std::endl;
+  else
+    std::cout << "Deleted existing file " << _filepath << std::endl;
 }
 bool FilePath::exists()
 {

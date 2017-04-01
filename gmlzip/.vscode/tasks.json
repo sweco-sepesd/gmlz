@@ -2,12 +2,30 @@
     "version": "0.1.0",
     "tasks": [
         {
+            "taskName": "build_all",
+            "command": "${cwd}/.vscode/build.bat",
+            "args": [
+                  "x64"
+                , "clean"
+                , "gmlzip"
+                //, "C:\\Projekt\\gmlz\\gmlzip\\test.xml"
+                //, "C:\\Users\\sepesd\\Downloads\\libexpat-R_2_2_0\\testdata\\largefiles\\nes96.xml"
+                , "C:\\Users\\sepesd\\Downloads\\167_CadastralParcel.gml"
+                //, "x86"
+                //, "clean"
+                //, "gmlzip"
+                //, "C:\\Users\\sepesd\\Downloads\\167_CadastralParcel.gml"
+                //, "dummy"
+            ]
+        } ,
+        
+        {
             "taskName": "build",
             "command": "${cwd}/.vscode/build.bat",
             "args": [
                   "x86"
-                , "clean"
-                , "gmlzip"
+                //, "clean"
+                , "gmlz" // compile only gmlz
                 //, "C:\\Projekt\\gmlz\\gmlzip\\test.xml"
                 //, "C:\\Users\\sepesd\\Downloads\\libexpat-R_2_2_0\\testdata\\largefiles\\nes96.xml"
                 , "C:\\Users\\sepesd\\Downloads\\167_CadastralParcel.gml"

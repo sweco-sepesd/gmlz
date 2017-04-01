@@ -48,37 +48,9 @@ int main(int argc, char *argv[])
 	std::cout << db_filepath << std::endl;
 
 	gmlz::DbMan db_man(db_filepath.c_str());
-	db_man.open();
-	n_elements = 0;
-	int BUFF_SIZE = 4096;
-	if (FILE *fh = fopen(source_file.filepath().c_str(), "r"))
-	{
-	    XML_Parser parser = XML_ParserCreateNS(NULL, GMLZ_NS_SEP);
-		
-		XML_SetUserData(parser, &db_man);
-		XML_SetStartElementHandler(parser, gmlz::DbMan::startElementHandler);
-	    int len = 0;
-		bool fSuccess = true;
-		while (!feof (fh) && fSuccess)
-	    {
-			void *buff = XML_GetBuffer(parser, BUFF_SIZE);
-			len = fread(buff, 1,  BUFF_SIZE, fh);
-			if (XML_STATUS_ERROR == XML_ParseBuffer(parser, len, len == 0))
-			{
-				std::cout << "ERROR: " << XML_ErrorString(XML_GetErrorCode(parser)) << " (" << XML_GetErrorCode(parser) << ")";
-				std::cout << " at line " << XML_GetCurrentLineNumber(parser) << std::endl;
-				break;
-			}
-	    }
-
-	    XML_ParserFree(parser);
-	    fclose(fh);
-		std::cout << "n elements: " << n_elements << std::endl;
- 	}
-	else
-	{
-	    return 1;
-	}
+	db_man.open(true);
+	int rc = db_man.importGml(source_file.filepath().c_str());
+	std::cout << "done " << rc  << std::endl;
 
 	return 0;
     }

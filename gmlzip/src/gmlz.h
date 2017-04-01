@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include "sqlite3.h"
+#include "expat/expat.h"
 
 #ifdef _WIN32
 #define GMLZ_FILESEP "\\"
@@ -54,14 +55,20 @@ std::string banner();
 
 class DbMan
 {
+  private:
     sqlite3 *_db;
+    sqlite3_stmt *_stmt_insert_gmlid;
     std::string _filepath;
+    XML_Parser _parser;
+    int _n_elements;
+    int _prepare();
+    int _insert_gml_id(long position,  const char *gml_id);
 
   public:
     DbMan(const char *fp);
-    void open();
+    void open(bool overwrite);
     int tableCreated(int argc, char **argv, char **azColName);
-    void importGml(const char *fp);
+    int importGml(const char *fp);
     void startElement( const char *el, const char **attr);
     static void startElementHandler(void *data, const char *el, const char **attr)
     {
@@ -87,6 +94,7 @@ public:
   std::string ext();
   std::string filename();
   std::string filepath();
+  void remove();
   bool exists();
 
   virtual ~FilePath();
