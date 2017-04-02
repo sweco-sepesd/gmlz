@@ -24,14 +24,14 @@ DbMan::DbMan(const char *fp): _filepath(fp), _n_elements(0)
 int  DbMan::_prepare()
 {
     char *zErrMsg = 0;
-    int rc = sqlite3_exec(_db, "create table gml_id(pos integer primary key, gml_id varchar)", DbMan::tableCreatedHandler, this, &zErrMsg);
+    int rc = sqlite3_exec(_db, "create table gml_id(pos integer primary key, size integer, gml_id varchar)", DbMan::tableCreatedHandler, this, &zErrMsg);
     if (rc != SQLITE_OK)
     {
         fprintf(stderr, "SQL error: %s\n", zErrMsg);
         sqlite3_free(zErrMsg);
         //return rc;
     }
-    rc = sqlite3_prepare_v2(_db, "insert into gml_id(pos, gml_id) values (?,?)",  -1, &_stmt_insert_gmlid, 0);
+    rc = sqlite3_prepare_v2(_db, "insert into gml_id(pos, size, gml_id) values (?,?,?)",  -1, &_stmt_insert_gmlid, 0);
     if (rc != SQLITE_OK)
     {
         fprintf(stderr, "SQL error: %s\n", zErrMsg);
@@ -75,7 +75,7 @@ int DbMan::importGml(const char *fp)
         _parser = XML_ParserCreateNS(NULL, GMLZ_NS_SEP);
             
         XML_SetUserData(_parser, this);
-        XML_SetStartElementHandler(_parser, DbMan::startElementHandler);
+        XML_SetElementHandler(_parser, DbMan::startElementHandler, DbMan::endElementHandler);
 	    int len = 0;
 		bool fSuccess = true;
         sqlite3_exec(_db, "begin transaction", NULL, NULL, NULL);
@@ -90,7 +90,15 @@ int DbMan::importGml(const char *fp)
 				break;
 			}
 	    }
-
+        if (_tracked_elements.size())
+        {
+            if (_tracked_elements.back().is_closed())
+            {
+                long end_pos = XML_GetCurrentByteIndex(_parser);
+                _insert_gml_id(_tracked_elements.back(), end_pos);
+                _tracked_elements.pop_back();
+            }
+        }
 	    XML_ParserFree(_parser);
 	    fclose(fh);
         
@@ -105,9 +113,10 @@ int DbMan::importGml(const char *fp)
     return 0;
 }
 
-int DbMan::_insert_gml_id(long position, const char *gml_id)
+int DbMan::_insert_gml_id(TrackedElement el, long end_pos) //(long position, const char *gml_id)
 {
-
+    long position = el.position();
+    const char *gml_id = el.gmlId();
     sqlite3_reset(_stmt_insert_gmlid);
 
     if (sqlite3_bind_int64(
@@ -118,10 +127,19 @@ int DbMan::_insert_gml_id(long position, const char *gml_id)
         printf("\nCould not bind int64.\n");
         return 1;
     }
+    
+    if (sqlite3_bind_int64(
+            _stmt_insert_gmlid,
+            2, // Index of wildcard
+            end_pos - position) != SQLITE_OK)
+    {
+        printf("\nCould not bind int64.\n");
+        return 1;
+    }
 
     if (sqlite3_bind_text(
             _stmt_insert_gmlid,
-            2, // Index of wildcard
+            3, // Index of wildcard
             gml_id,
             strlen(gml_id), // length of text
             SQLITE_STATIC) != SQLITE_OK)
@@ -142,15 +160,50 @@ int DbMan::_insert_gml_id(long position, const char *gml_id)
 
 void DbMan::startElement(const char *el, const char **attr)
 {
+    // first see if back of tracked elements is closed
+    if (_tracked_elements.size())
+    {
+        if (_tracked_elements.back().is_closed())
+        {
+            long end_pos = XML_GetCurrentByteIndex(_parser);
+            _insert_gml_id(_tracked_elements.back(), end_pos);
+            _tracked_elements.pop_back();
+        }
+    }
+
+    _xml_path.push_back(gmlz::QName(el));
     for (int i = 0; attr[i]; i += 2) {
-		gmlz::QName qname(attr[i]);
-		if(qname.isGmlId())
+		gmlz::QName attr_qname(attr[i]);
+		if(attr_qname.isGmlId())
 		{
             long position = XML_GetCurrentByteIndex(_parser);
-            _insert_gml_id(position, attr[i + 1]);
+            std::string gml_id(attr[i + 1]);
+            //std::cout << "begin " << position << " " << _xml_path.size() << " " << gml_id << std::endl;
+            _tracked_elements.push_back(TrackedElement(_xml_path.size(), _xml_path.back(), gml_id, position));
+            //_insert_gml_id(position, attr[i + 1]);
 			break;
 		}
     }
+}
+
+void DbMan::endElement(const char *el)
+{
+    gmlz::QName qname(el);
+    //std::cout << "end " << el << std::endl;
+    if (_tracked_elements.size())
+    {
+        if (_tracked_elements.back().is_closed())
+        {
+            long end_pos = XML_GetCurrentByteIndex(_parser);
+            _insert_gml_id(_tracked_elements.back(), end_pos);
+            _tracked_elements.pop_back();
+        }
+        if (_tracked_elements.back().matches(_xml_path.size(), qname))
+        {
+            _tracked_elements.back().close();
+        }
+    }
+    _xml_path.pop_back();
 }
 
 DbMan::~DbMan()
@@ -251,7 +304,39 @@ bool QName::isGmlId()
         return  true;
     return false;
 }
+bool QName::equals(QName other)
+{
+    return _qname == other._qname;
+}
 
 QName::~QName() {}
+
+TrackedElement::TrackedElement(int depth, QName qname, std::string gml_id, long stream_pos) : _qname(qname),
+                                                                                              _gml_id(gml_id),
+                                                                                              _closed(false)
+{
+    _depth = depth;
+    _stream_pos = stream_pos;
+}
+bool TrackedElement::matches(int depth, QName qname)
+{
+    return _depth == depth && _qname.equals(qname);
+}
+
+void TrackedElement::close()
+{
+    _closed = true;
+}
+bool TrackedElement::is_closed()
+{
+    return _closed;
+}
+const char* TrackedElement::gmlId(){
+    return _gml_id.c_str();
+}
+long TrackedElement::position(){
+    return _stream_pos;
+}
+TrackedElement::~TrackedElement() {}
 
 } // namespace gmlz

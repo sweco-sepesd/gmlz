@@ -49,9 +49,39 @@
 namespace gmlz
 {
 
-static int c_callback(void *param, int argc, char **argv, char **azColName);
 
 std::string banner();
+
+class QName
+{
+  std::string _ns;
+  std::string _localname;
+  std::string _qname;
+
+public:
+  QName(const char *qname);
+  bool isGmlId();
+  bool equals(QName other);
+  virtual ~QName();
+};
+
+class TrackedElement
+{
+  int _depth;
+  QName _qname;
+  std::string _gml_id;
+  long _stream_pos;
+  bool _closed;
+
+public:
+  TrackedElement(int depth, QName qname,  std::string gml_id, long stream_pos);
+  bool matches(int depth, QName qname);
+  const char* gmlId();
+  long position();
+  void close();
+  bool is_closed();
+  virtual ~TrackedElement();
+};
 
 class DbMan
 {
@@ -59,10 +89,12 @@ class DbMan
     sqlite3 *_db;
     sqlite3_stmt *_stmt_insert_gmlid;
     std::string _filepath;
+    std::vector<QName> _xml_path;
+    std::vector<TrackedElement> _tracked_elements;
     XML_Parser _parser;
     int _n_elements;
     int _prepare();
-    int _insert_gml_id(long position,  const char *gml_id);
+    int _insert_gml_id(TrackedElement el, long end_pos);
 
   public:
     DbMan(const char *fp);
@@ -70,9 +102,14 @@ class DbMan
     int tableCreated(int argc, char **argv, char **azColName);
     int importGml(const char *fp);
     void startElement( const char *el, const char **attr);
+    void endElement( const char *el);
     static void startElementHandler(void *data, const char *el, const char **attr)
     {
         static_cast<DbMan*>(data)->startElement(el, attr);
+    }
+    static void endElementHandler(void *data, const char *el) 
+    {
+        static_cast<DbMan*>(data)->endElement(el);
     }
     static int tableCreatedHandler(void *param, int argc, char **argv, char **azColName)
     {
@@ -100,17 +137,6 @@ public:
   virtual ~FilePath();
 };
 
-class QName
-{
-  std::string _ns;
-  std::string _localname;
-  std::string _qname;
-
-public:
-  QName(const char *qname);
-  bool isGmlId();
-  virtual ~QName();
-};
 
 
 
