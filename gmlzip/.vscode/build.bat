@@ -10,6 +10,8 @@ if "%1" equ "x86" call :set_env %1
 if "%1" equ "clean" call :clean
 if "%1" equ "gmlzip" call :gmlzip %2
 if "%1" equ "gmlz" call :gmlz
+if "%1" equ "zlib" call :zlib
+if "%1" equ "tryzlib" call :tryzlib
 
 if %errorlevel% neq 0 goto:exit_fail
 shift
@@ -53,6 +55,54 @@ if exist %build_dir% (
 
 goto:eof
 ::clean
+
+
+:zlib
+echo compiling zlib
+
+if not exist "%build_dir%\zlib" (
+    echo creating folder %build_dir\zlib%
+    mkdir "%build_dir%\zlib"
+)
+
+set defines=/D WIN32 ^
+/D NDEBUG ^
+/D _CONSOLE ^
+/D XML_STATIC ^
+/D _CRT_SECURE_NO_WARNINGS
+
+
+set src_files=src\zlib-1.2.11\adler32.c ^
+    src\zlib-1.2.11\compress.c ^
+    src\zlib-1.2.11\crc32.c ^
+    src\zlib-1.2.11\deflate.c ^
+    src\zlib-1.2.11\gzclose.c ^
+    src\zlib-1.2.11\gzlib.c ^
+    src\zlib-1.2.11\gzread.c ^
+    src\zlib-1.2.11\gzwrite.c ^
+    src\zlib-1.2.11\inflate.c ^
+    src\zlib-1.2.11\infback.c ^
+    src\zlib-1.2.11\inftrees.c ^
+    src\zlib-1.2.11\inffast.c ^
+    src\zlib-1.2.11\trees.c ^
+    src\zlib-1.2.11\uncompr.c ^
+    src\zlib-1.2.11\zutil.c 
+
+cl /nologo /c /O2 /EHs /GF /MT /Gy /Gd /W3 %defines% /Fo"%build_dir%\zlib\\" %src_files%
+lib /out:"%build_dir%\zlib.lib" "%build_dir%\zlib\*.obj"
+::zlib
+goto:eof
+
+:tryzlib
+cl /nologo /c /O2 /EHs /GF /MT /Gy /Gd /W3 %defines% /Fo"%build_dir%\\" src\tryzlib.c
+::cl /nologo /c /O2 /EHs /MD "/Fo%build_dir%\\gmlzip.obj"  "src\\gmlzip.cpp"
+link /nologo /LIBPATH:"%build_dir%" /OUT:%build_dir%\\tryzlib.exe "%build_dir%\\*.obj" "zlib.lib"
+
+%build_dir%\tryzlib.exe
+
+::tryzlib
+goto:eof
+
 
 :gmlz
 echo compiling gmlz files only

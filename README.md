@@ -12,7 +12,33 @@ That's it - about the storage format.
 ## index (SQLite database)
 
 ```sql
-create table gml_id(pos integer primary key, gml_id )
+create table xmlns(
+      signature integer primary key
+    , uri varchar
+);
+create table qname(
+      signature integer primary key
+    , namespace integer
+    , localname varchar
+);
+create table xml_path(
+      signature integer primary key
+    , parent_signature integer
+    , qname integer
+);
+create table xml_fragment(
+      position integer primary key
+    , size integer
+    , gml_id varchar
+    , xml_path integer
+);
+create table compressed_block(
+      position integer primary key
+    , size integer
+    , compressed_position integer
+    , compressed_size integer
+);
+
 ```
 
 
