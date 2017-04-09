@@ -30,21 +30,31 @@ class Indexer(object):
         with open(gml_file, 'rb') as fin:
             self.parser.ParseFile(fin)
             self.conn.commit()
+        self._post_import()
         return 0
+    def _post_import(self):
+        cur = self.conn.cursor()
+        cur.execute('create table if not exists xpath_elements(crc integer, level integer, qname integer, primary key (crc, level)) without rowid')
+        # [item for sublist in l for item in sublist]
+        cur.executemany('insert into xpath_elements(crc, level, qname) values(?, ?, ?)'
+                    ,  [(crc, level, qname) for crc, qnames in self.xpath_map.items() for level, qname in enumerate(qnames)])
+        self.conn.commit()
+        #cur.executemany
+
     def _clear_state(self):
-        self.ns_map = {}
-        self.qname_map = {}
-        self.xpath_map = {}
-        self.xpath = []
+        self.ns_map = {}     # {uri: id [, ...]}
+        self.qname_map = {}  # {qname: id [, ...]}
+        self.xpath_map = {}  # {crc: id [, ...]}
+        self.xpath = []      # [crc, crc, crc ...]
     def _open_db(self, fp, overwrite):
         self._close_db()
         if overwrite and os.path.exists(fp) and os.path.isfile(fp):
             os.remove(fp)
         self.conn = sqlite3.connect(fp)
         cur = self.conn.cursor()
-        cur.execute('create table namespace(id integer primary key, uri text, prefix text)')
-        cur.execute('create table qname(id integer primary key, ns_id integer, local_name text)')
-        cur.execute('create table xpath(crc integer primary key, parent_crc integer, qname integer)')
+        cur.execute('create table if not exists namespace(id integer primary key, uri text, prefix text)')
+        cur.execute('create table if not exists qname(id integer primary key, ns_id integer, local_name text)')
+        cur.execute('create table if not exists xpath(crc integer primary key, parent_crc integer, qname integer)')
     def _close_db(self):
         if self.conn != None:
             self.conn.close()
@@ -77,8 +87,9 @@ class Indexer(object):
             cur = self.conn.cursor()
             cur.execute('insert into xpath(crc, parent_crc, qname) values (?, ?, ?)'
                         , (xpath_crc, parent_xpath_crc, qname_id))
-            xpath_text = '/'.join('{:04X}'.format(a) for a in self.xpath)
-            self.xpath_map[xpath_crc] = xpath_text
+            xpath_elements = self.xpath_map.get(parent_xpath_crc, []) + [qname_id]
+            xpath_text = '/'.join(map(str, xpath_elements))
+            self.xpath_map[xpath_crc] = xpath_elements
             print('XP ', xpath_text)
 
     def _end_element(self, qname):
@@ -90,8 +101,8 @@ class Indexer(object):
 
 if __name__ == '__main__':
     import sys
-    src_gml = "C:\\Users\\sepesd\\Downloads\\167_CadastralParcel.gml"
-    dst_db = "C:\\Users\\sepesd\\Downloads\\167_CadastralParcel.sqlite"
+    src_gml = r"C:\Users\sepesd\Downloads\FormOfWay_GML_UTM32-EUREF89\DK_FormOfWay.gml"
+    dst_db = r"C:\Users\sepesd\Downloads\FormOfWay_GML_UTM32-EUREF89\DK_FormOfWay.sqlite"
     indexer = Indexer()
     exit(indexer.import_gml(src_gml,sqlite_file=dst_db))
 
@@ -103,7 +114,7 @@ with recursive x(crc, parent_crc, qname) as (
     select 
         xpath.crc
         , xpath.parent_crc
-        , namespace.prefix || ':' || qname.local_name qname
+        , namespace.uri || ' ' || qname.local_name qname
     from xpath, qname, namespace 
     where xpath.qname = qname.id 
         and qname.ns_id = namespace.id
@@ -112,6 +123,23 @@ with recursive x(crc, parent_crc, qname) as (
     union all select x.crc, xp.path || '/' || qname from xp, x where xp.crc = x.parent_crc
 )
 select * from xp;
+
+
+
+with recursive t(crc, parent_crc, level, qname) as (
+    select crc, parent_crc, 0 level, qname
+    from xpath
+    where parent_crc = 0
+    union all
+    select xp.crc, xp.parent_crc, t.level + 1, xp.qname
+    from xpath xp, t
+    where xp.parent_crc = t.crc
+)
+select count(*) 
+from t
+order by crc;
+
+
 
 
 def start_ns_decl(prefix, uri):
