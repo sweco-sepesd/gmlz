@@ -1,6 +1,7 @@
 # gmlz
 An attempt to develop utilities for handling large GML-files
 
+
 ## gmlz format
 The gmlz format is a carefully composed zip-file containing a gml file *and* an
 index that can be used when reading the content.
